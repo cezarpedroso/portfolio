@@ -26,7 +26,7 @@ function Home() {
         <Contact />
       </main>
       <footer className="border-t border-border/40 py-8 text-center">
-        <p className="font-mono text-xs tracking-widest text-muted-foreground uppercase">CEZAR PEDROSO — BUILT WITH PRECISION.</p>
+        <p className="font-mono text-xs tracking-widest text-muted-foreground uppercase">© 2026 Cezar Pedroso</p>
       </footer>
     </div>
   );

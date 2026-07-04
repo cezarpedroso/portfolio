@@ -1,27 +1,29 @@
 import { motion } from "framer-motion";
-import pfpPath from "@assets/pfp_1783130743782.png";
+import devopsDayPath from "../../assets/devops.jpeg";
+import honorsAwardPath from "../../assets/honors.jpeg";
+import graduationPath from "../../assets/grad.jpeg";
 
 const timelineItems = [
   {
     id: "01",
-    year: "2022",
-    label: "The Start",
-    description: "Began studying computer science and software engineering. First exposure to backend systems, databases, and the fundamentals of building software that actually works.",
-    image: pfpPath,
+    year: "2025",
+    label: "DevOpsDays Des Moines",
+    description: "Attended DevOpsDays in Des Moines and connected with fellow engineers while learning about DevOps practices, automation, and collaboration.",
+    image: devopsDayPath,
   },
   {
     id: "02",
-    year: "2023",
-    label: "Building Depth",
-    description: "Moved into practical projects — writing real systems, learning C# and .NET, developing tools that solve actual problems. Began cultivating a preference for maintainability over cleverness.",
-    image: pfpPath,
+    year: "2026",
+    label: "Academic Achievement Award",
+    description: "Received the Academic Achievement Award in Applied Computer Science from my university honors program for excellence in academic performance.",
+    image: honorsAwardPath,
   },
   {
     id: "03",
-    year: "2024 – Now",
-    label: "Professional Work",
-    description: "Contributing to production systems as a Software Engineering Intern. Focused on backend engineering, security-conscious development, and building the kind of depth that makes a developer reliable.",
-    image: pfpPath,
+    year: "2026",
+    label: "Graduated College",
+    description: "Graduated with a B.A. in Software Engineering and a minor in Information Technology, earning a 3.7 GPA and celebrating the completion of this milestone.",
+    image: graduationPath,
   }
 ];
 
@@ -37,7 +39,7 @@ export function About() {
         <div className="mb-10 font-mono text-sm tracking-widest text-primary uppercase">04 About</div>
 
         <p className="font-sans font-light text-lg md:text-xl text-foreground/90 leading-relaxed max-w-3xl mb-16">
-          I am a software engineer focused on becoming the kind of developer people can rely on when the work needs to be clear, secure, and maintainable. I care about building systems with practical architecture, disciplined execution, and enough depth to survive real use.
+          I'm a software engineer with a passion for backend development, software architecture, and building systems that solve real-world problems. I enjoy understanding how software works before deciding how to build it, with a focus on designing clean APIs, modeling data effectively, and creating applications that are secure, maintainable, and built to last. I value writing code that is easy to understand, continuously improving my technical skills, and developing software that delivers meaningful, long-term value rather than simply following trends.
         </p>
 
         {/* Horizontal timeline — photo + text spread across section */}
@@ -55,19 +57,16 @@ export function About() {
                 className="flex flex-col"
               >
                 {/* Photo */}
-                <div className="relative w-full aspect-[4/3] overflow-hidden border border-border/60 mb-6">
+                <div className="relative w-full aspect-[5/4] overflow-hidden border border-border/60 mb-6">
                   <img
                     src={item.image}
                     alt={item.label}
-                    className="w-full h-full object-cover object-top opacity-80"
+                    className="w-full h-full object-cover object-center opacity-80"
                   />
                   <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-primary/40" />
                   <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-primary/40" />
                   <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-primary/40" />
                   <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-primary/40" />
-                  <div className="absolute bottom-2 right-2 font-mono text-[9px] text-white/60 uppercase tracking-widest bg-black/30 px-1 py-0.5">
-                    {item.year}
-                  </div>
                 </div>
 
                 {/* Timeline dot sits on the connecting line */}

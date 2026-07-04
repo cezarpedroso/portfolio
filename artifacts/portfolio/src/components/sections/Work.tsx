@@ -14,7 +14,6 @@ type Project = {
   title: string;
   year: string;
   type: string;
-  role: string;
   stack: string;
   description: string;
   github?: string;
@@ -27,10 +26,8 @@ const projects: Project[] = [
     title: "SQL Schema Architect",
     year: "2023",
     type: "Developer Tooling",
-    role: "Author",
-    stack: "C# / .NET / SQL / EF Core / CLI",
-    description: "A CLI tool that parses SQL schema files and auto-generates Entity Framework Core models, DbContext, and configuration files for C# backends — eliminating repetitive manual work and reducing setup errors.",
-    github: "https://github.com/cezarpedroso",
+    stack: "C# / .NET / SQL / EF Core / Blazor",
+    description: "Schema Architect is a developer tool that generates a production-ready Entity Framework Core foundation from SQL database schemas. It parses SQL definitions to identify tables, relationships, constraints, and data types, then generates entity models, a DbContext, Fluent API configurations, DTOs, and CRUD controller scaffolding. Built to reduce repetitive backend setup and provide developers with a clean, maintainable starting point for new applications.",
     slides: [
       { label: "CLI Interface", image: pfpPath },
       { label: "Generated Output", image: pfpPath },
@@ -40,9 +37,8 @@ const projects: Project[] = [
   {
     id: "002",
     title: "Citation Management System",
-    year: "2024",
+    year: "2025",
     type: "Internal Systems",
-    role: "Lead Developer",
     stack: "Node.js / PostgreSQL / Tailwind CSS",
     description: "Developed a full-stack citation management system for the City of Oskaloosa that allows law enforcement officers to issue citations digitally and enables citizens to view and contest citations online. Built features including role-based access control, analytics, audit logs, user management, infraction management, media uploads, and PDF generation.",
     slides: [
@@ -53,13 +49,12 @@ const projects: Project[] = [
   },
   {
     id: "003",
-    title: "Backend API Service",
-    year: "2023",
-    type: "Software Development",
-    role: "Developer",
+    title: "Argus: AI Engineering Agent",
+    year: "2026",
+    type: "AI / Machine Learning",
     stack: "TypeScript / Node.js / PostgreSQL",
-    description: "A structured REST API service built with reliability and maintainability as primary concerns. Clean data modeling, proper error handling, and clear interfaces throughout.",
-    github: "https://github.com/cezarpedroso",
+    description: "Argus is a local AI engineering agent for .NET backend development built with C#, Ollama, and local large language models. It analyzes real codebases, understands project structure, explains backend workflows, generates and refactors code, runs builds and tests, and iteratively resolves compiler errors to streamline development and improve maintainability.",
+    github: "https://github.com/cezarpedroso/argus",
     slides: [
       { label: "API Routes", image: pfpPath },
       { label: "Database Schema", image: pfpPath },
@@ -68,13 +63,12 @@ const projects: Project[] = [
   },
   {
     id: "004",
-    title: "Additional Project",
-    year: "2023",
-    type: "Software Development",
-    role: "Developer",
-    stack: "Placeholder",
-    description: "Placeholder for another meaningful software project. Built with a focus on practical architecture, disciplined execution, and long-term usability.",
-    github: "https://github.com/cezarpedroso",
+    title: "Vulnerable File Sharing Platform",
+    year: "2025",
+    type: "Software Development / Security",
+    stack: "React / TypeScript / Node.js / PostgreSQL",
+    description: "Vulnerable File Sharing Platform is an educational web application designed to simulate a realistic file-sharing system with intentionally embedded security vulnerabilities. Built to support penetration testing and secure coding education, the platform includes authentication, file management, sharing, commenting, and administration features while demonstrating common web security flaws such as SQL injection, IDOR, SSRF, XSS, broken access control, and insecure authentication mechanisms.",
+    github: "https://github.com/cezarpedroso/Vulnerable-Web-App",
     slides: [
       { label: "Overview", image: pfpPath },
       { label: "Details", image: pfpPath },
@@ -191,7 +185,6 @@ export function Work() {
                 <div className="flex flex-wrap gap-x-6 gap-y-1 font-mono text-xs tracking-wider text-muted-foreground uppercase mt-2">
                   <span>TYPE: <span className="text-foreground/80">{project.type}</span></span>
                   <span>YEAR: <span className="text-foreground/80">{project.year}</span></span>
-                  <span>ROLE: <span className="text-foreground/80">{project.role}</span></span>
                   <span>STACK: <span className="text-foreground/80">{project.stack}</span></span>
                 </div>
               </div>

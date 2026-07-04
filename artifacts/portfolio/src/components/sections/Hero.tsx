@@ -105,7 +105,7 @@ export function Hero() {
         </div>
 
         <p className="font-sans font-light text-base md:text-lg text-foreground/80 leading-relaxed mb-10 max-w-xl">
-          I build maintainable backend-focused software with attention to security, structure, and long-term usability.
+          I build reliable, maintainable software with a focus on clean architecture. Currently building enterprise .NET applications.
         </p>
 
         <div className="pt-6 border-t border-border flex flex-col sm:flex-row gap-4 sm:gap-8 font-mono text-xs text-muted-foreground uppercase tracking-wider">
@@ -119,7 +119,7 @@ export function Hero() {
           </div>
           <div className="flex flex-col gap-1">
             <span className="text-primary/70">Location</span>
-            <span className="text-foreground">United States</span>
+            <span className="text-foreground">Iowa, United States</span>
           </div>
         </div>
       </motion.div>
