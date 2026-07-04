@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 
 const experiences = [
@@ -42,7 +41,7 @@ export function Experience() {
         transition={{ duration: 0.4, ease: "easeOut" }}
       >
         <div className="mb-12 font-mono text-sm tracking-widest text-primary uppercase">02 Experience</div>
-        
+
         <div className="space-y-8">
           {experiences.map((exp) => (
             <div key={exp.id} className="pt-6 border-t border-border">
@@ -55,11 +54,11 @@ export function Experience() {
                   {exp.period}
                 </span>
               </div>
-              
+
               <div className="font-mono text-xs tracking-wider text-primary mb-3 uppercase">
                 FOCUS: <span className="text-foreground/80">{exp.focus}</span>
               </div>
-              
+
               <p className="font-sans text-sm text-foreground/80 leading-relaxed max-w-3xl">
                 {exp.description}
               </p>

@@ -54,7 +54,7 @@ export function Skills() {
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.4, ease: "easeOut" }}
       >
-        <div className="mb-12 font-mono text-sm tracking-widest text-primary uppercase">00 Skills</div>
+        <div className="mb-12 font-mono text-sm tracking-widest text-primary uppercase">03 Skills</div>
 
         <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-9 gap-px border border-border/60 bg-border/60">
           {skills.map((skill) => (

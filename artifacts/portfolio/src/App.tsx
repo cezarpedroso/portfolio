@@ -5,9 +5,9 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import { Nav } from "@/components/sections/Nav";
 import { Hero } from "@/components/sections/Hero";
-import { Skills } from "@/components/sections/Skills";
 import { Work } from "@/components/sections/Work";
 import { Experience } from "@/components/sections/Experience";
+import { Skills } from "@/components/sections/Skills";
 import { About } from "@/components/sections/About";
 import { Contact } from "@/components/sections/Contact";
 
@@ -19,9 +19,9 @@ function Home() {
       <Nav />
       <main className="max-w-4xl mx-auto px-6">
         <Hero />
-        <Skills />
         <Work />
         <Experience />
+        <Skills />
         <About />
         <Contact />
       </main>

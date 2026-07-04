@@ -5,8 +5,9 @@ export function Nav() {
         <div className="flex items-center gap-6 font-mono text-xs tracking-widest uppercase text-muted-foreground">
           <a href="#work" data-testid="nav-work" className="hover:text-primary transition-colors">01 Work</a>
           <a href="#experience" data-testid="nav-experience" className="hover:text-primary transition-colors">02 Experience</a>
-          <a href="#about" data-testid="nav-about" className="hover:text-primary transition-colors">03 About</a>
-          <a href="#contact" data-testid="nav-contact" className="hover:text-primary transition-colors">04 Contact</a>
+          <a href="#skills" data-testid="nav-skills" className="hover:text-primary transition-colors">03 Skills</a>
+          <a href="#about" data-testid="nav-about" className="hover:text-primary transition-colors">04 About</a>
+          <a href="#contact" data-testid="nav-contact" className="hover:text-primary transition-colors">05 Contact</a>
         </div>
       </div>
     </nav>
