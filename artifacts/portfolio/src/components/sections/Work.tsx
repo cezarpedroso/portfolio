@@ -111,7 +111,7 @@ function ProjectCarousel({ slides, onClose }: { slides: Slide[]; onClose: () => 
           </button>
         </div>
 
-        <div className="relative aspect-video bg-background/60 flex items-center justify-center group">
+        <div className="relative aspect-video bg-background/60 flex items-center justify-center">
           <div
             className="absolute inset-0 opacity-[0.025]"
             style={{
@@ -129,20 +129,10 @@ function ProjectCarousel({ slides, onClose }: { slides: Slide[]; onClose: () => 
             <p className="font-mono text-[10px] text-muted-foreground/40 mt-2 uppercase tracking-widest">{slides[current].note}</p>
           </div>
 
-          <button
-            onClick={prev}
-            className="absolute left-3 text-muted-foreground hover:text-primary transition-colors"
-            data-testid="carousel-prev"
-            aria-label="Previous slide"
-          >
+          <button onClick={prev} className="absolute left-3 text-muted-foreground hover:text-primary transition-colors" aria-label="Previous slide">
             <ChevronLeft className="w-5 h-5" />
           </button>
-          <button
-            onClick={next}
-            className="absolute right-3 text-muted-foreground hover:text-primary transition-colors"
-            data-testid="carousel-next"
-            aria-label="Next slide"
-          >
+          <button onClick={next} className="absolute right-3 text-muted-foreground hover:text-primary transition-colors" aria-label="Next slide">
             <ChevronRight className="w-5 h-5" />
           </button>
         </div>
@@ -170,16 +160,16 @@ export function Work() {
   };
 
   return (
-    <section id="work" className="py-24">
+    <section id="work" className="py-16">
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.4, ease: "easeOut" }}
       >
-        <div className="mb-12 font-mono text-sm tracking-widest text-primary uppercase">01 Work</div>
+        <div className="mb-10 font-mono text-sm tracking-widest text-primary uppercase">01 Work</div>
 
-        <div className="space-y-12">
+        <div className="space-y-10">
           {projects.map((project) => (
             <article key={project.id} className="pt-6 border-t border-border">
               <div className="mb-3">

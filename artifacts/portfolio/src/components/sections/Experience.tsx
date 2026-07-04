@@ -33,14 +33,14 @@ const experiences = [
 
 export function Experience() {
   return (
-    <section id="experience" className="py-24">
+    <section id="experience" className="py-16">
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.4, ease: "easeOut" }}
       >
-        <div className="mb-12 font-mono text-sm tracking-widest text-primary uppercase">02 Experience</div>
+        <div className="mb-10 font-mono text-sm tracking-widest text-primary uppercase">02 Experience</div>
 
         <div className="space-y-8">
           {experiences.map((exp) => (
