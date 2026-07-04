@@ -6,7 +6,6 @@ import NotFound from "@/pages/not-found";
 import { Nav } from "@/components/sections/Nav";
 import { Hero } from "@/components/sections/Hero";
 import { Work } from "@/components/sections/Work";
-import { Principles } from "@/components/sections/Principles";
 import { Experience } from "@/components/sections/Experience";
 import { About } from "@/components/sections/About";
 import { Contact } from "@/components/sections/Contact";
@@ -20,13 +19,12 @@ function Home() {
       <main className="max-w-4xl mx-auto px-6">
         <Hero />
         <Work />
-        <Principles />
         <Experience />
         <About />
         <Contact />
       </main>
       <footer className="border-t border-accent/20 py-8 text-center">
-        <p className="font-serif text-sm italic text-muted-foreground">Built with patience, clarity, and care.</p>
+        <p className="font-mono text-sm tracking-wider text-muted-foreground uppercase">CEZAR PEDROSO — BUILT WITH PRECISION.</p>
       </footer>
     </div>
   );

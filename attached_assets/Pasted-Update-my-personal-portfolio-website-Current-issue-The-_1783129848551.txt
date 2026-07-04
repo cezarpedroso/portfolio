@@ -1,0 +1,130 @@
+Update my personal portfolio website.
+
+Current issue:
+The UI is nice, but it feels too simple and too forced into an old European aesthetic. I want it to feel more like classic IBM / technical archive / serious engineering portfolio.
+
+Remove:
+- Any mention of Brazil
+- The separate “Engineering Principles” section
+- Overly romantic European styling
+- Large decorative serif typography
+- Anything that feels like a luxury brand or historical theme
+
+Add:
+- A hero image placeholder on the right side where I can later add my professional portrait
+- Three additional experience placeholders
+- A stronger technical/IBM-inspired visual system
+
+Design direction:
+Classic IBM enterprise technology mixed with quiet elegance.
+Calm, structured, professional, technical, and mature.
+
+Typography:
+Use IBM Plex Sans as the main font.
+Use IBM Plex Mono for small labels, metadata, navigation, and section numbers.
+Use serif fonts only very minimally, or remove them entirely.
+
+Color palette:
+- Off-white / warm ivory background
+- Charcoal text
+- Muted navy
+- Forest green
+- Cool gray
+- Very subtle brown only if needed
+
+Hero layout:
+Left side:
+CEZAR PEDROSO
+Software Engineer
+
+Reliable systems. Clear architecture. Practical execution.
+
+I build maintainable backend-focused software with attention to security, structure, and long-term usability.
+
+Metadata row:
+Focus: Backend Engineering / Cybersecurity
+Status: Software Engineering Intern
+Location: United States
+
+Right side:
+Add a clean portrait placeholder.
+It should look intentional, not like a random empty box.
+Use a bordered frame, subtle grid lines, or a technical label like:
+PORTRAIT / IMAGE PLACEHOLDER
+
+Sections:
+01 Selected Work
+02 Experience
+03 About
+04 Contact
+
+Selected Work:
+Keep projects as technical case files, not generic cards.
+
+Projects:
+1. Citation Management System
+Built for a local police department. A complex system focused on managing citations with practical workflows and reliable data handling.
+
+2. SQL Schema Architect
+A tool that transforms SQL files into EF Core code for C# backends, reflecting growth in backend engineering, architecture, and automation.
+
+3. Additional Project
+Placeholder for another meaningful software project.
+
+Each project should include:
+- Type
+- Year
+- Role
+- Stack
+- Problem
+- What I built
+- Technical highlights
+
+Experience:
+Create a clean timeline or structured list.
+
+Include:
+1. Software Engineering Intern
+Focused on meaningful PRs, backend contribution, learning deeply, and contributing to production-quality systems.
+
+2. Backend Development Experience
+Placeholder for backend/API/database work.
+
+3. Cybersecurity Learning Experience
+Placeholder for security, networking, systems, or cyber-related work.
+
+4. Technical Projects & Independent Work
+Placeholder for personal projects, architecture experiments, automation tools, and full-stack applications.
+
+About:
+Remove the separate principles section, but include the ideas naturally in one refined paragraph.
+
+About copy:
+I am a software engineer focused on becoming the kind of developer people can rely on when the work needs to be clear, secure, and maintainable. I care about building systems with practical architecture, disciplined execution, and enough depth to survive real use. My work is shaped by curiosity, consistency, and a preference for long-term quality over short-term trends.
+
+Contact:
+Simple and elegant.
+Include:
+- Email
+- GitHub
+- LinkedIn
+- Resume
+
+Visual details:
+- More grid-based layout
+- Thin technical dividers
+- Monospace labels
+- Compact spacing
+- Fewer decorative elements
+- No generic cards
+- No colorful gradients
+- No glassmorphism
+- No excessive animation
+- No startup-style hero
+- No “vibecoded” UI
+
+The final result should feel like:
+IBM technical archive + modern personal engineering portfolio.
+
+It should communicate:
+serious, reliable, structured, technical, disciplined, calm, and professional.
