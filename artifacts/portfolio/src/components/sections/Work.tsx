@@ -2,10 +2,11 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SiGithub } from "react-icons/si";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import pfpPath from "@assets/pfp_1783130743782.png";
 
 type Slide = {
   label: string;
-  note: string;
+  image?: string;
 };
 
 type Project = {
@@ -16,28 +17,13 @@ type Project = {
   role: string;
   stack: string;
   description: string;
-  github: string;
+  github?: string;
   slides: Slide[];
 };
 
 const projects: Project[] = [
   {
     id: "001",
-    title: "Citation Management System",
-    year: "2024",
-    type: "Internal Systems",
-    role: "Lead Developer",
-    stack: "C# / .NET / SQL Server / Entity Framework",
-    description: "Built for a local police department. A complex system for managing citations, workflows, and data with consistency and auditability. Focused on role-based access, audit trails, and reliable Entity Framework integration.",
-    github: "https://github.com/cezarpedroso",
-    slides: [
-      { label: "Dashboard Overview", note: "Add screenshot here" },
-      { label: "Citation Form", note: "Add screenshot here" },
-      { label: "Workflow View", note: "Add screenshot here" },
-    ]
-  },
-  {
-    id: "002",
     title: "SQL Schema Architect",
     year: "2023",
     type: "Developer Tooling",
@@ -46,9 +32,23 @@ const projects: Project[] = [
     description: "A CLI tool that parses SQL schema files and auto-generates Entity Framework Core models, DbContext, and configuration files for C# backends — eliminating repetitive manual work and reducing setup errors.",
     github: "https://github.com/cezarpedroso",
     slides: [
-      { label: "CLI Interface", note: "Add screenshot here" },
-      { label: "Generated Output", note: "Add screenshot here" },
-      { label: "Schema Parsing", note: "Add screenshot here" },
+      { label: "CLI Interface", image: pfpPath },
+      { label: "Generated Output", image: pfpPath },
+      { label: "Schema Parsing", image: pfpPath },
+    ]
+  },
+  {
+    id: "002",
+    title: "Citation Management System",
+    year: "2024",
+    type: "Internal Systems",
+    role: "Lead Developer",
+    stack: "Node.js / PostgreSQL / Tailwind CSS",
+    description: "Developed a full-stack citation management system for the City of Oskaloosa that allows law enforcement officers to issue citations digitally and enables citizens to view and contest citations online. Built features including role-based access control, analytics, audit logs, user management, infraction management, media uploads, and PDF generation.",
+    slides: [
+      { label: "Dashboard Overview", image: pfpPath },
+      { label: "Citation Form", image: pfpPath },
+      { label: "Workflow View", image: pfpPath },
     ]
   },
   {
@@ -61,9 +61,9 @@ const projects: Project[] = [
     description: "A structured REST API service built with reliability and maintainability as primary concerns. Clean data modeling, proper error handling, and clear interfaces throughout.",
     github: "https://github.com/cezarpedroso",
     slides: [
-      { label: "API Routes", note: "Add screenshot here" },
-      { label: "Database Schema", note: "Add screenshot here" },
-      { label: "Documentation", note: "Add screenshot here" },
+      { label: "API Routes", image: pfpPath },
+      { label: "Database Schema", image: pfpPath },
+      { label: "Documentation", image: pfpPath },
     ]
   },
   {
@@ -76,8 +76,8 @@ const projects: Project[] = [
     description: "Placeholder for another meaningful software project. Built with a focus on practical architecture, disciplined execution, and long-term usability.",
     github: "https://github.com/cezarpedroso",
     slides: [
-      { label: "Overview", note: "Add screenshot here" },
-      { label: "Details", note: "Add screenshot here" },
+      { label: "Overview", image: pfpPath },
+      { label: "Details", image: pfpPath },
     ]
   }
 ];
@@ -111,28 +111,30 @@ function ProjectCarousel({ slides, onClose }: { slides: Slide[]; onClose: () => 
           </button>
         </div>
 
-        <div className="relative aspect-video bg-background/60 flex items-center justify-center">
-          <div
-            className="absolute inset-0 opacity-[0.025]"
-            style={{
-              backgroundImage: "linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)",
-              backgroundSize: "24px 24px"
-            }}
-          />
-          <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-primary/30" />
-          <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-primary/30" />
-          <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-primary/30" />
-          <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-primary/30" />
-
-          <div className="text-center z-10">
-            <p className="font-mono text-xs text-muted-foreground/60 uppercase tracking-widest">[ {slides[current].label} ]</p>
-            <p className="font-mono text-[10px] text-muted-foreground/40 mt-2 uppercase tracking-widest">{slides[current].note}</p>
+        <div className="relative aspect-video bg-background/60 overflow-hidden flex items-center justify-center">
+          {slides[current].image ? (
+            <img
+              src={slides[current].image}
+              alt={slides[current].label}
+              className="w-full h-full object-cover object-top opacity-60"
+            />
+          ) : (
+            <div className="text-center z-10">
+              <p className="font-mono text-xs text-muted-foreground/60 uppercase tracking-widest">[ {slides[current].label} ]</p>
+            </div>
+          )}
+          <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-primary/30 z-10" />
+          <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-primary/30 z-10" />
+          <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-primary/30 z-10" />
+          <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-primary/30 z-10" />
+          <div className="absolute bottom-2 left-3 font-mono text-[10px] text-white/60 uppercase tracking-widest z-10 bg-black/30 px-1.5 py-0.5">
+            {slides[current].label}
           </div>
 
-          <button onClick={prev} className="absolute left-3 text-muted-foreground hover:text-primary transition-colors" aria-label="Previous slide">
+          <button onClick={prev} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/80 hover:text-white transition-colors z-10 bg-black/20 rounded p-0.5" aria-label="Previous slide">
             <ChevronLeft className="w-5 h-5" />
           </button>
-          <button onClick={next} className="absolute right-3 text-muted-foreground hover:text-primary transition-colors" aria-label="Next slide">
+          <button onClick={next} className="absolute right-3 top-1/2 -translate-y-1/2 text-white/80 hover:text-white transition-colors z-10 bg-black/20 rounded p-0.5" aria-label="Next slide">
             <ChevronRight className="w-5 h-5" />
           </button>
         </div>
@@ -180,7 +182,7 @@ export function Work() {
                   data-testid={`project-title-${project.id}`}
                   aria-expanded={openCarousel === project.id}
                 >
-                  <h3 className="font-sans font-medium text-2xl text-foreground mb-1 group-hover:text-primary transition-colors inline-flex items-center gap-2">
+                  <h3 className="font-sans font-medium text-2xl text-foreground mb-1 group-hover:text-primary transition-colors inline-flex items-center gap-2 flex-wrap">
                     {project.title}
                     <span className="font-mono text-[10px] text-muted-foreground/50 tracking-wider uppercase border border-border/60 px-1.5 py-0.5 group-hover:border-primary/40 group-hover:text-primary/60 transition-colors">
                       {openCarousel === project.id ? "CLOSE ↑" : "PREVIEW ↓"}
@@ -208,18 +210,20 @@ export function Work() {
                 )}
               </AnimatePresence>
 
-              <div className="mt-5">
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 font-mono text-xs tracking-widest text-primary hover:text-secondary transition-colors uppercase hover:underline underline-offset-4"
-                  data-testid={`link-github-${project.id}`}
-                >
-                  <SiGithub className="w-3.5 h-3.5" />
-                  View on GitHub
-                </a>
-              </div>
+              {project.github && (
+                <div className="mt-5">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 font-mono text-xs tracking-widest text-primary hover:text-secondary transition-colors uppercase hover:underline underline-offset-4"
+                    data-testid={`link-github-${project.id}`}
+                  >
+                    <SiGithub className="w-3.5 h-3.5" />
+                    View on GitHub
+                  </a>
+                </div>
+              )}
             </article>
           ))}
         </div>
