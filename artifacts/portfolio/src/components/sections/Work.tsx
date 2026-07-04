@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 
 const projects = [
@@ -9,13 +8,8 @@ const projects = [
     type: "Internal Systems",
     role: "Lead Developer",
     stack: "C# / .NET / SQL Server / Entity Framework",
-    problem: "A local police department needed a reliable system to manage citations, workflows, and data with consistency and auditability.",
-    solution: "A full citation management platform handling citation creation, assignment, escalation, and reporting. Focused on data integrity, workflow reliability, and operational usability under real conditions.",
-    highlights: [
-      "Complex relational schema with audit trails and status tracking",
-      "Role-based access control and permission management",
-      "Optimized SQL queries and reliable Entity Framework integration"
-    ]
+    description: "Built for a local police department. A complex system for managing citations, workflows, and data with consistency and auditability. Focused on role-based access, audit trails, and reliable Entity Framework integration.",
+    github: "https://github.com/cezarpedroso"
   },
   {
     id: "002",
@@ -24,28 +18,28 @@ const projects = [
     type: "Developer Tooling",
     role: "Author",
     stack: "C# / .NET / SQL / EF Core / CLI",
-    problem: "Generating EF Core models from SQL schema files required repetitive manual work and was error-prone.",
-    solution: "A CLI tool that parses SQL schema files and auto-generates Entity Framework Core code for C# backends — reducing setup time and eliminating manual errors.",
-    highlights: [
-      "SQL parsing engine with support for multiple schema patterns",
-      "Auto-generation of model classes, DbContext, and configuration files",
-      "Configurable output matching team conventions"
-    ]
+    description: "A CLI tool that parses SQL schema files and auto-generates Entity Framework Core models, DbContext, and configuration files for C# backends — eliminating repetitive manual work and reducing setup errors.",
+    github: "https://github.com/cezarpedroso"
   },
   {
     id: "003",
-    title: "Additional Project",
+    title: "Backend API Service",
     year: "2023",
     type: "Software Development",
     role: "Developer",
     stack: "TypeScript / Node.js / PostgreSQL",
-    problem: "Placeholder for another meaningful software project.",
-    solution: "Built with reliability and maintainability as primary concerns.",
-    highlights: [
-      "Structured backend architecture",
-      "Clean data modeling",
-      "Focus on maintainability and clear interfaces"
-    ]
+    description: "A structured REST API service built with reliability and maintainability as primary concerns. Clean data modeling, proper error handling, and clear interfaces throughout.",
+    github: "https://github.com/cezarpedroso"
+  },
+  {
+    id: "004",
+    title: "Additional Project",
+    year: "2023",
+    type: "Software Development",
+    role: "Developer",
+    stack: "Placeholder",
+    description: "Placeholder for another meaningful software project. Built with a focus on practical architecture, disciplined execution, and long-term usability.",
+    github: "https://github.com/cezarpedroso"
   }
 ];
 
@@ -59,16 +53,16 @@ export function Work() {
         transition={{ duration: 0.4, ease: "easeOut" }}
       >
         <div className="mb-12 font-mono text-sm tracking-widest text-primary uppercase">01 Work</div>
-        
-        <div className="space-y-16">
-          {projects.map((project, index) => (
+
+        <div className="space-y-12">
+          {projects.map((project) => (
             <article key={project.id} className="pt-6 border-t border-border group">
-              <div className="mb-4">
+              <div className="mb-3">
                 <div className="font-mono text-xs tracking-wider text-muted-foreground mb-2">PROJECT {project.id}</div>
-                <h3 className="font-sans font-medium text-2xl text-foreground mb-4 group-hover:text-primary transition-colors">
+                <h3 className="font-sans font-medium text-2xl text-foreground mb-3 group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
-                <div className="flex flex-wrap gap-x-6 gap-y-2 font-mono text-xs tracking-wider text-muted-foreground uppercase pb-6 border-b border-border/50">
+                <div className="flex flex-wrap gap-x-6 gap-y-1 font-mono text-xs tracking-wider text-muted-foreground uppercase">
                   <span>TYPE: <span className="text-foreground/80">{project.type}</span></span>
                   <span>YEAR: <span className="text-foreground/80">{project.year}</span></span>
                   <span>ROLE: <span className="text-foreground/80">{project.role}</span></span>
@@ -76,38 +70,19 @@ export function Work() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-8 mt-6">
-                <div className="md:col-span-4 flex flex-col gap-1">
-                  <span className="font-mono text-xs tracking-widest text-primary uppercase">Problem</span>
-                  <p className="font-sans text-sm text-foreground/80 leading-relaxed">{project.problem}</p>
-                </div>
-                <div className="md:col-span-8 flex flex-col gap-1">
-                  <span className="font-mono text-xs tracking-widest text-primary uppercase">What I Built</span>
-                  <p className="font-sans text-sm text-foreground/80 leading-relaxed">{project.solution}</p>
-                </div>
-              </div>
+              <p className="font-sans text-sm text-foreground/80 leading-relaxed max-w-2xl mb-5 mt-4">
+                {project.description}
+              </p>
 
-              <div className="mb-6 bg-muted/30 p-6 border border-border/50">
-                <span className="font-mono text-xs tracking-widest text-primary uppercase block mb-4">Technical Highlights</span>
-                <ul className="space-y-2">
-                  {project.highlights.map((highlight, i) => (
-                    <li key={i} className="font-sans text-sm text-foreground/80 flex items-start">
-                      <span className="text-primary mr-3 mt-[2px] font-mono text-xs">-</span>
-                      <span>{highlight}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div>
-                <a 
-                  href="#" 
-                  className="font-mono text-xs tracking-widest text-primary hover:text-secondary transition-colors uppercase group-hover:underline underline-offset-4"
-                  data-testid={`link-project-${project.id}`}
-                >
-                  View details &rarr;
-                </a>
-              </div>
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-xs tracking-widest text-primary hover:text-secondary transition-colors uppercase hover:underline underline-offset-4"
+                data-testid={`link-github-${project.id}`}
+              >
+                View on GitHub &rarr;
+              </a>
             </article>
           ))}
         </div>

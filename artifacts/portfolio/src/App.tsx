@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import { Nav } from "@/components/sections/Nav";
 import { Hero } from "@/components/sections/Hero";
+import { Skills } from "@/components/sections/Skills";
 import { Work } from "@/components/sections/Work";
 import { Experience } from "@/components/sections/Experience";
 import { About } from "@/components/sections/About";
@@ -18,13 +19,14 @@ function Home() {
       <Nav />
       <main className="max-w-4xl mx-auto px-6">
         <Hero />
+        <Skills />
         <Work />
         <Experience />
         <About />
         <Contact />
       </main>
-      <footer className="border-t border-accent/20 py-8 text-center">
-        <p className="font-mono text-sm tracking-wider text-muted-foreground uppercase">CEZAR PEDROSO — BUILT WITH PRECISION.</p>
+      <footer className="border-t border-border/40 py-8 text-center">
+        <p className="font-mono text-xs tracking-widest text-muted-foreground uppercase">CEZAR PEDROSO — BUILT WITH PRECISION.</p>
       </footer>
     </div>
   );
