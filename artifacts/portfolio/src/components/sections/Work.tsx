@@ -6,7 +6,7 @@ import pfpPath from "@assets/pfp_1783130743782.png";
 
 type Slide = {
   label: string;
-  image?: string;
+  image: string;
 };
 
 type Project = {
@@ -104,37 +104,37 @@ function ProjectCarousel({ slides, onClose }: { slides: Slide[]; onClose: () => 
           <button
             onClick={onClose}
             className="text-muted-foreground hover:text-foreground transition-colors"
-            data-testid="carousel-close"
             aria-label="Close preview"
           >
             <X className="w-3.5 h-3.5" />
           </button>
         </div>
 
-        <div className="relative aspect-video bg-background/60 overflow-hidden flex items-center justify-center">
-          {slides[current].image ? (
-            <img
-              src={slides[current].image}
-              alt={slides[current].label}
-              className="w-full h-full object-cover object-top opacity-60"
-            />
-          ) : (
-            <div className="text-center z-10">
-              <p className="font-mono text-xs text-muted-foreground/60 uppercase tracking-widest">[ {slides[current].label} ]</p>
-            </div>
-          )}
+        <div className="relative aspect-video bg-background/60 overflow-hidden">
+          <img
+            src={slides[current].image}
+            alt={slides[current].label}
+            className="w-full h-full object-cover object-top opacity-60"
+          />
           <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-primary/30 z-10" />
           <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-primary/30 z-10" />
           <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-primary/30 z-10" />
           <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-primary/30 z-10" />
-          <div className="absolute bottom-2 left-3 font-mono text-[10px] text-white/60 uppercase tracking-widest z-10 bg-black/30 px-1.5 py-0.5">
+          <div className="absolute bottom-2 left-3 font-mono text-[10px] text-white/70 uppercase tracking-widest z-10 bg-black/30 px-1.5 py-0.5">
             {slides[current].label}
           </div>
-
-          <button onClick={prev} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/80 hover:text-white transition-colors z-10 bg-black/20 rounded p-0.5" aria-label="Previous slide">
+          <button
+            onClick={prev}
+            className="absolute left-3 top-1/2 -translate-y-1/2 text-white/80 hover:text-white transition-colors z-10 bg-black/20 rounded p-0.5"
+            aria-label="Previous slide"
+          >
             <ChevronLeft className="w-5 h-5" />
           </button>
-          <button onClick={next} className="absolute right-3 top-1/2 -translate-y-1/2 text-white/80 hover:text-white transition-colors z-10 bg-black/20 rounded p-0.5" aria-label="Next slide">
+          <button
+            onClick={next}
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-white/80 hover:text-white transition-colors z-10 bg-black/20 rounded p-0.5"
+            aria-label="Next slide"
+          >
             <ChevronRight className="w-5 h-5" />
           </button>
         </div>
@@ -179,7 +179,6 @@ export function Work() {
                 <button
                   onClick={() => toggleCarousel(project.id)}
                   className="text-left group w-full"
-                  data-testid={`project-title-${project.id}`}
                   aria-expanded={openCarousel === project.id}
                 >
                   <h3 className="font-sans font-medium text-2xl text-foreground mb-1 group-hover:text-primary transition-colors inline-flex items-center gap-2 flex-wrap">
@@ -217,7 +216,6 @@ export function Work() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 font-mono text-xs tracking-widest text-primary hover:text-secondary transition-colors uppercase hover:underline underline-offset-4"
-                    data-testid={`link-github-${project.id}`}
                   >
                     <SiGithub className="w-3.5 h-3.5" />
                     View on GitHub
