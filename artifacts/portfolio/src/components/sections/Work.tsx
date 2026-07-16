@@ -196,6 +196,13 @@ const projects: Project[] = [
         source: projectMedia("citation-management-system/citation-detail.jpg"),
         kind: "image",
       },
+      {
+        label: "Printable Citation",
+        source: projectMedia(
+          "citation-management-system/printable-citation.png",
+        ),
+        kind: "image",
+      },
     ],
   },
 ];
@@ -319,7 +326,7 @@ export function Work() {
   };
 
   return (
-    <section id="work" className="py-16">
+    <section id="projects" className="py-16">
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -327,7 +334,7 @@ export function Work() {
         transition={{ duration: 0.4, ease: "easeOut" }}
       >
         <div className="mb-10 font-mono text-sm tracking-widest text-primary uppercase">
-          01 Work
+          01 Projects
         </div>
 
         <div className="space-y-10">
