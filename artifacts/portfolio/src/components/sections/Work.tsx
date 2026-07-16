@@ -5,7 +5,8 @@ import { ChevronLeft, ChevronRight, ExternalLink, X } from "lucide-react";
 
 type Slide = {
   label: string;
-  image: string;
+  source: string;
+  kind: "image" | "pdf" | "document";
 };
 
 type Project = {
@@ -20,6 +21,9 @@ type Project = {
   live?: string;
   slides: Slide[];
 };
+
+const projectMedia = (path: string) =>
+  `${import.meta.env.BASE_URL}project-media/${path}`;
 
 const projects: Project[] = [
   {
@@ -37,7 +41,43 @@ const projects: Project[] = [
     ],
     github: "https://github.com/cezarpedroso/dotdet",
     live: "https://dotdet.vercel.app/",
-    slides: [],
+    slides: [
+      {
+        label: "Product Home",
+        source: projectMedia("dotdet/home.png"),
+        kind: "image",
+      },
+      {
+        label: "Analysis Dashboard",
+        source: projectMedia("dotdet/dashboard.png"),
+        kind: "image",
+      },
+      {
+        label: "Readiness Overview",
+        source: projectMedia("dotdet/overview.png"),
+        kind: "image",
+      },
+      {
+        label: "Findings Workspace",
+        source: projectMedia("dotdet/findings.png"),
+        kind: "image",
+      },
+      {
+        label: "Code Explorer",
+        source: projectMedia("dotdet/code-explorer.png"),
+        kind: "image",
+      },
+      {
+        label: "Production Readiness Report (PDF)",
+        source: projectMedia("dotdet/production-readiness-report.pdf"),
+        kind: "pdf",
+      },
+      {
+        label: "Interactive Readiness Report",
+        source: projectMedia("dotdet/production-readiness-report.html"),
+        kind: "document",
+      },
+    ],
   },
   {
     id: "002",
@@ -52,7 +92,38 @@ const projects: Project[] = [
       "Generates entity models, a DbContext, Fluent API configurations, DTOs, and CRUD controller scaffolding.",
       "Reduces repetitive backend setup while giving teams a consistent, maintainable starting architecture.",
     ],
-    slides: [],
+    slides: [
+      {
+        label: "Product Home",
+        source: projectMedia("schema-architect/home.png"),
+        kind: "image",
+      },
+      {
+        label: "Schema Upload",
+        source: projectMedia("schema-architect/schema-upload.png"),
+        kind: "image",
+      },
+      {
+        label: "Interactive Schema Explorer",
+        source: projectMedia("schema-architect/schema-explorer.png"),
+        kind: "image",
+      },
+      {
+        label: "Schema Health",
+        source: projectMedia("schema-architect/schema-health.png"),
+        kind: "image",
+      },
+      {
+        label: "Relationship Map",
+        source: projectMedia("schema-architect/relationships.png"),
+        kind: "image",
+      },
+      {
+        label: "Generated Code",
+        source: projectMedia("schema-architect/generated-code.png"),
+        kind: "image",
+      },
+    ],
   },
   {
     id: "003",
@@ -68,7 +139,33 @@ const projects: Project[] = [
       "Combines reviewer and approver queues with a searchable administrative audit trail, Microsoft Entra ID integration, and security-focused unit and integration tests.",
     ],
     github: "https://github.com/cezarpedroso/Document-Approval-System",
-    slides: [],
+    slides: [
+      {
+        label: "Workspace Overview",
+        source: projectMedia("document-approval-system/workspace-overview.png"),
+        kind: "image",
+      },
+      {
+        label: "Create Document",
+        source: projectMedia("document-approval-system/create-document.png"),
+        kind: "image",
+      },
+      {
+        label: "Review Queue",
+        source: projectMedia("document-approval-system/review-queue.png"),
+        kind: "image",
+      },
+      {
+        label: "Approval Queue",
+        source: projectMedia("document-approval-system/approval-queue.png"),
+        kind: "image",
+      },
+      {
+        label: "Administrative Audit Log",
+        source: projectMedia("document-approval-system/audit-log.png"),
+        kind: "image",
+      },
+    ],
   },
   {
     id: "004",
@@ -83,7 +180,23 @@ const projects: Project[] = [
       "Uses role-based access control, user and infraction management, media uploads, and PDF generation to support the complete operational workflow.",
       "Adds analytics and detailed audit logs for administrative visibility, accountability, and reporting.",
     ],
-    slides: [],
+    slides: [
+      {
+        label: "Public Citation Search",
+        source: projectMedia("citation-management-system/public-search.jpg"),
+        kind: "image",
+      },
+      {
+        label: "Administrative Dashboard",
+        source: projectMedia("citation-management-system/dashboard.jpg"),
+        kind: "image",
+      },
+      {
+        label: "Citation Detail",
+        source: projectMedia("citation-management-system/citation-detail.jpg"),
+        kind: "image",
+      },
+    ],
   },
 ];
 
@@ -95,6 +208,7 @@ function ProjectCarousel({
   onClose: () => void;
 }) {
   const [current, setCurrent] = useState(0);
+  const slide = slides[current];
 
   const prev = () => setCurrent((c) => (c === 0 ? slides.length - 1 : c - 1));
   const next = () => setCurrent((c) => (c === slides.length - 1 ? 0 : c + 1));
@@ -111,40 +225,71 @@ function ProjectCarousel({
         <div className="flex items-center justify-between px-4 py-2 border-b border-border/60">
           <span className="font-mono text-[10px] tracking-widest text-muted-foreground uppercase">
             {String(current + 1).padStart(2, "0")} /{" "}
-            {String(slides.length).padStart(2, "0")} — {slides[current].label}
+            {String(slides.length).padStart(2, "0")} — {slide.label}
           </span>
-          <button
-            onClick={onClose}
-            className="text-muted-foreground hover:text-foreground transition-colors"
-            aria-label="Close preview"
-          >
-            <X className="w-3.5 h-3.5" />
-          </button>
+          <div className="flex items-center gap-3">
+            {slide.kind !== "image" && (
+              <a
+                href={slide.source}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 font-mono text-[10px] tracking-widest text-primary hover:text-secondary transition-colors uppercase"
+              >
+                <ExternalLink className="w-3 h-3" />
+                Open {slide.kind === "pdf" ? "PDF" : "Report"}
+              </a>
+            )}
+            <button
+              onClick={onClose}
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              aria-label="Close preview"
+            >
+              <X className="w-3.5 h-3.5" />
+            </button>
+          </div>
         </div>
 
-        <div className="relative aspect-video bg-background/60 overflow-hidden">
-          <img
-            src={slides[current].image}
-            alt={slides[current].label}
-            className="w-full h-full object-cover object-top opacity-60"
-          />
+        <div
+          className={`relative bg-background/60 overflow-hidden ${
+            slide.kind === "image"
+              ? "aspect-video"
+              : "h-[70vh] min-h-[32rem] max-h-[52rem]"
+          }`}
+        >
+          {slide.kind === "image" ? (
+            <img
+              src={slide.source}
+              alt={slide.label}
+              className="w-full h-full object-contain object-center"
+            />
+          ) : (
+            <iframe
+              key={slide.source}
+              src={
+                slide.kind === "pdf"
+                  ? `${slide.source}#page=1&view=FitH&toolbar=1&navpanes=0`
+                  : slide.source
+              }
+              title={slide.label}
+              className="w-full h-full border-0 bg-white"
+              loading="lazy"
+              sandbox={slide.kind === "document" ? "" : undefined}
+            />
+          )}
           <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-primary/30 z-10" />
           <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-primary/30 z-10" />
           <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-primary/30 z-10" />
           <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-primary/30 z-10" />
-          <div className="absolute bottom-2 left-3 font-mono text-[10px] text-white/70 uppercase tracking-widest z-10 bg-black/30 px-1.5 py-0.5">
-            {slides[current].label}
-          </div>
           <button
             onClick={prev}
-            className="absolute left-3 top-1/2 -translate-y-1/2 text-white/80 hover:text-white transition-colors z-10 bg-black/20 rounded p-0.5"
+            className="absolute left-3 top-1/2 -translate-y-1/2 text-white/90 hover:text-white transition-colors z-10 bg-black/55 rounded p-1"
             aria-label="Previous slide"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button
             onClick={next}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-white/80 hover:text-white transition-colors z-10 bg-black/20 rounded p-0.5"
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-white/90 hover:text-white transition-colors z-10 bg-black/55 rounded p-1"
             aria-label="Next slide"
           >
             <ChevronRight className="w-5 h-5" />
