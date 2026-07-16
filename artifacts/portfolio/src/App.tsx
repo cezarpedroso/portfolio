@@ -11,6 +11,7 @@ import { Experience } from "@/components/sections/Experience";
 import { Skills } from "@/components/sections/Skills";
 import { About } from "@/components/sections/About";
 import { Contact } from "@/components/sections/Contact";
+import Admin from "@/pages/admin";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +39,7 @@ function Home() {
 function Router() {
   return (
     <Switch>
+      <Route path="/admin" component={Admin} />
       <Route path="/" component={Home} />
       <Route component={NotFound} />
     </Switch>
