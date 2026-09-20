@@ -41,7 +41,6 @@ const experiences = [
     focus: "Personal Projects / Architecture / Automation",
     description: "Shadowed IT professionals to learn about enterprise server architecture, data storage, wireless infrastructure, healthcare APIs, and SQL-based reporting systems, gaining exposure to the technologies that support large-scale healthcare applications."
   }
-  {
   
 ];
 
