@@ -3,36 +3,46 @@ import { motion } from "framer-motion";
 const experiences = [
   {
     id: "001",
+    title: "Software Developer",
+    company: "OskyApp",
+    period: "August 2026 – Present",
+    focus: "Personal Projects / Architecture / Automation",
+    description: "Lead and mentor a team of five developers building a community web application in partnership with the Mahaska Chamber & Development Group. Collaborate with stakeholders to define requirements and features while providing technical direction across architecture, data modeling, reusable components, testing, troubleshooting, and implementation."
+  }
+  {
+    id: "002",
     title: "Application Developer Intern",
     company: "Homesteaders Life Company",
     period: "May 2026 – Present",
     focus: ".NET development / Backend Services ",
-    description: "Developed .NET applications using C#, Blazor, and Entity Framework Core. Contributed to a greenfield application by designing the data layer, implementing business logic, and integrating authentication with Microsoft Entra ID. Developed REST API endpoints that were deployed to production and collaborated using Azure DevOps throughout the development process."
-  },
-  {
-    id: "002",
-    title: "Software Engineering Intern",
-    company: "AI Equity Alliance",
-    period: "September 2025 – December 2025",
-    focus: "Web Development / API / Databases",
-    description: "Developed software solutions for local businesses, including a full-stack citation management system for the City of Oskaloosa that modernized the citation process for law enforcement and citizens. Contributed to backend development, application design, and feature implementation while conducting research on cybersecurity and artificial intelligence to support technical initiatives and emerging technologies."
+    description: "Developed a production claims-correspondence application using C#, ASP.NET Core, Entity Framework Core, and REST APIs to streamline Claims Department workflows. Designed data models and migrations, optimized document-processing functionality, implemented Serilog logging, expanded xUnit and Postman testing, and secured application access with OAuth 2.0 and Microsoft Entra ID while collaborating with stakeholders on enhancements."
   },
   {
     id: "003",
-    title: "IT & Web Development Intern",
-    company: "Jeremy Empie Web Design LLC.",
-    period: "May 2025 – July 2025",
-    focus: "Web Development / Networking / Systems",
-    description: "Built and maintained 7+ websites for local businesses while supporting server and network maintenance. Managed website updates, plugins, and day-to-day technical support to ensure reliable operation."
+    title: "Software Engineering Intern",
+    company: "VTEX",
+    period: "Jan 2026 – ",
+    focus: "Web Development / Rest APIs / Databases",
+    description: "Contributed to a CRM system by developing backend services and REST APIs with C#, .NET, and ASP.NET Core, while designing data models and database access with Entity Framework Core. Developed reusable Blazor components, implemented business logic, integrated APIs, and resolved backend issues through testing, code reviews, and collaboration with engineers and stakeholders."
   },
   {
     id: "004",
+    title: "Contract Software Engineer",
+    company: "Self-Employed",
+    period: "July 2025 – Present",
+    focus: "Web Development / Networking / Systems",
+    description: "Delivered custom web applications and enterprise asset management systems for four mechanical and industrial maintenance companies in Brazil, developing solutions with C#, .NET, React, Blazor, SQL, and PostgreSQL. Built features for asset tracking, preventive maintenance, work orders, inventory, and reporting while independently managing requirements, architecture, testing, deployment, and ongoing client support."
+  },
+  {
+    id: "005",
     title: "IT Shadowing Experience",
     company: "Pella Regional Health Center",
     period: "January 2026 – March 2026",
     focus: "Personal Projects / Architecture / Automation",
     description: "Shadowed IT professionals to learn about enterprise server architecture, data storage, wireless infrastructure, healthcare APIs, and SQL-based reporting systems, gaining exposure to the technologies that support large-scale healthcare applications."
   }
+  {
+  
 ];
 
 export function Experience() {
