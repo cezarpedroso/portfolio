@@ -8,7 +8,7 @@ const experiences = [
     period: "August 2026 – Present",
     focus: "Personal Projects / Architecture / Automation",
     description: "Lead and mentor a team of five developers building a community web application in partnership with the Mahaska Chamber & Development Group. Collaborate with stakeholders to define requirements and features while providing technical direction across architecture, data modeling, reusable components, testing, troubleshooting, and implementation."
-  }
+  },
   {
     id: "002",
     title: "Application Developer Intern",
