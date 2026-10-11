@@ -169,6 +169,21 @@ const projects: Project[] = [
   },
   {
     id: "004",
+    title: "Eltse Hall",
+    year: "2026",
+    type: "Residence Life / Operations",
+    stack: "React / TypeScript / ASP.NET Core / EF Core / Azure",
+    description:
+      "A residence life management platform for scheduling, resident management, and dorm checks used by Resident Assistants and the Hall Director.",
+    highlights: [
+      "Built a full-stack platform for scheduling, resident management, and dorm checks, with ongoing updates shaped by staff feedback.",
+      "Structured the backend across Domain, Application, Infrastructure, and API layers with ASP.NET Identity role-based authorization, antiforgery protection, and rate limiting.",
+      "Tested domain, authentication, and scheduling logic with xUnit and EF Core InMemory, then deployed to Azure Web App through GitHub Actions CI/CD.",
+    ],
+    slides: [],
+  },
+  {
+    id: "005",
     title: "Citation Management System",
     year: "2025",
     type: "Internal Systems",
