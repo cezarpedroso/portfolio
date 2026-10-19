@@ -92,6 +92,8 @@ const projects: Project[] = [
       "Generates entity models, a DbContext, Fluent API configurations, DTOs, and CRUD controller scaffolding.",
       "Reduces repetitive backend setup while giving teams a consistent, maintainable starting architecture.",
     ],
+    github: "https://github.com/cezarpedroso/SchemaArchitect",
+    live: "https://schemarchitect.azurewebsites.net/",
     slides: [
       {
         label: "Product Home",
@@ -180,6 +182,7 @@ const projects: Project[] = [
       "Structured the backend across Domain, Application, Infrastructure, and API layers with ASP.NET Identity role-based authorization, antiforgery protection, and rate limiting.",
       "Tested domain, authentication, and scheduling logic with xUnit and EF Core InMemory, then deployed to Azure Web App through GitHub Actions CI/CD.",
     ],
+    github: "https://github.com/cezarpedroso/eltse-hall",
     slides: [],
   },
   {
