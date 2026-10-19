@@ -105,13 +105,13 @@ export function Hero() {
         </div>
 
         <p className="font-sans font-light text-base md:text-lg text-foreground/80 leading-relaxed mb-10 max-w-xl">
-          I build reliable, maintainable software with a focus on clean architecture. Currently building enterprise .NET applications.
+          I build reliable, maintainable software with a focus on clean code. Currently building enterprise .NET applications.
         </p>
 
         <div className="pt-6 border-t border-border flex flex-col sm:flex-row gap-4 sm:gap-8 font-mono text-xs text-muted-foreground uppercase tracking-wider">
           <div className="flex flex-col gap-1">
             <span className="text-primary/70">Focus</span>
-            <span className="text-foreground">Backend Engineering / Cybersecurity</span>
+            <span className="text-foreground">.NET Development / Full-Stack Developmnt / DevOps</span>
           </div>
           <div className="flex flex-col gap-1">
             <span className="text-primary/70">Status</span>
