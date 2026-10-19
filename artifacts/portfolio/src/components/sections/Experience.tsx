@@ -5,6 +5,7 @@ const experiences = [
     id: "001",
     title: "Application Developer Intern",
     company: "Homesteaders Life Company",
+    location: "West Des Moines, IA",
     period: "May 2026 - Aug 2026",
     focus: "Claims Correspondence / Backend Services",
     highlights: [
@@ -12,26 +13,28 @@ const experiences = [
       "Designed and maintained Entity Framework Core models and database migrations that supported claims processing.",
       "Refactored shared modules and optimized document-processing workflows, improving maintainability and performance.",
       "Secured the platform with OAuth 2.0 and Microsoft Entra ID while adding structured logging with Serilog and automated tests with xUnit and Postman.",
-      "Turned stakeholder requirements into production improvements.",
     ],
   },
   {
     id: "002",
     title: "Software Engineer Intern",
     company: "William Penn University",
+    location: "Oskaloosa, IA",
     period: "Sep 2025 - Present",
     focus: "Full-Stack Systems / Campus Software",
     highlights: [
-      "Built a citation management system for the Oskaloosa Police Department with React, TypeScript, Express, and PostgreSQL, including license scanning to auto-populate citations and multi-role officer access.",
-      "Automated citation-system builds and deployments with GitHub Actions and an AWS CI/CD pipeline.",
-      "Built a university scheduling and enrollment platform with ASP.NET Core, EF Core, and MySQL to assign courses, professors, and classrooms under scheduling constraints.",
-      "Added a backend forecasting service that uses historical enrollment data to recommend course schedules and contributed features to a local geofencing and advertising application.",
+      "Built a municipal citation management application using React, TypeScript, Express, and PostgreSQL.",
+      "Integrated barcode scanning and GPS-based incident mapping for driver's license data capture and incident location tracking.",
+      "Created a CI/CD pipeline with GitHub Actions and Microsoft Azure to automate application build, testing, and deployment workflows.",
+      "Assessed application security using OWASP guidance, identifying authentication, session management, and data integrity risks.",
+      "Built a university scheduling and enrollment platform with ASP.NET Core, EF Core, and MySQL that assigns courses, professors, and classrooms under scheduling constraints, plus a backend service that forecasts course demand from historical enrollment data and recommends schedules.",
     ],
   },
   {
     id: "003",
     title: "Contract Software Engineer",
     company: "Self-Employed",
+    location: "Remote",
     period: "Jul 2025 - Present",
     focus: "Custom Software / Industrial Operations",
     highlights: [
@@ -44,6 +47,7 @@ const experiences = [
     id: "004",
     title: "Software Engineering Intern",
     company: "VTEX",
+    location: "Remote",
     period: "May 2024 - Aug 2024",
     focus: "CRM Platform / Backend Services",
     highlights: [
@@ -87,6 +91,11 @@ export function Experience() {
                 <span className="font-semibold text-foreground">
                   {exp.company}
                 </span>
+              </div>
+
+              <div className="font-mono text-xs tracking-wider text-primary mb-2 uppercase">
+                LOCATION:{" "}
+                <span className="text-foreground/80">{exp.location}</span>
               </div>
 
               <div className="font-mono text-xs tracking-wider text-primary mb-3 uppercase">
