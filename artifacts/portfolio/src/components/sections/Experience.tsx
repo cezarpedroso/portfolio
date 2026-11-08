@@ -12,7 +12,7 @@ const experiences = [
       "Built backend services and REST APIs in C# and ASP.NET Core for a production claims-correspondence platform.",
       "Designed and maintained Entity Framework Core models and database migrations that supported claims processing.",
       "Refactored shared modules and optimized document-processing workflows, improving maintainability and performance.",
-      "Secured the platform with OAuth 2.0 and Microsoft Entra ID while adding structured logging with Serilog and automated tests with xUnit and Postman.",
+      "Secured the platform with OAuth 2.0 / Microsoft Entra ID; added structured logging (Serilog) and automated testing (xUnit, Postman).",
     ],
   },
   {
@@ -27,7 +27,7 @@ const experiences = [
       "Integrated barcode scanning and GPS-based incident mapping for driver's license data capture and incident location tracking.",
       "Created a CI/CD pipeline with GitHub Actions and Microsoft Azure to automate application build, testing, and deployment workflows.",
       "Assessed application security using OWASP guidance, identifying authentication, session management, and data integrity risks.",
-      "Built a university scheduling and enrollment platform with ASP.NET Core, EF Core, and MySQL that assigns courses, professors, and classrooms under scheduling constraints, plus a backend service that forecasts course demand from historical enrollment data and recommends schedules.",
+      "Built a university scheduling and enrollment platform (ASP.NET Core, EF Core, MySQL) that assigns courses, professors, and classrooms under scheduling constraints, plus a backend service that forecasts course demand from historical enrollment data and recommends schedules.",
     ],
   },
   {
@@ -38,9 +38,9 @@ const experiences = [
     period: "Jul 2025 - Present",
     focus: "Custom Software / Industrial Operations",
     highlights: [
-      "Delivered custom software and asset-management systems for four mechanical and industrial maintenance companies in Brazil, owning the lifecycle from requirements to cloud deployment and client support.",
+      "Delivered custom software and asset-management systems for 4 mechanical and industrial maintenance companies in Brazil, owning the full lifecycle from requirements and architecture to testing, cloud deployment, and client support.",
       "Replaced paper-based workflows with a barcode-based asset tracking and preventive-maintenance system for industrial compressors.",
-      "Built full-stack apps with C#, .NET, React, Blazor, and PostgreSQL for inventory, maintenance scheduling, work orders, and reporting.",
+      "Built full-stack apps (C#, .NET, React, Blazor, PostgreSQL) for inventory, maintenance scheduling, work orders, and reporting.",
     ],
   },
   {
