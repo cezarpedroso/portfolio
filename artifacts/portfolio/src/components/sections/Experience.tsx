@@ -9,10 +9,11 @@ const experiences = [
     period: "May 2026 - Aug 2026",
     focus: "Claims Correspondence / Backend Services",
     highlights: [
-      "Built backend services and REST APIs in C# and ASP.NET Core for a production claims-correspondence platform.",
-      "Designed and maintained Entity Framework Core models and database migrations that supported claims processing.",
-      "Refactored shared modules and optimized document-processing workflows, improving maintainability and performance.",
-      "Secured the platform with OAuth 2.0 / Microsoft Entra ID; added structured logging (Serilog) and automated testing (xUnit, Postman).",
+      "Developed backend services and REST APIs using C# and ASP.NET Core for a production life insurance claims correspondence platform, automating manual workflows and implementing business logic, CRUD operations, and editable email templates.",
+      "Designed and maintained SQL Server database models using Entity Framework Core, implementing data relationships, migrations, and queries to support claims processing and correspondence management.",
+      "Implemented OAuth 2.0 and Microsoft Entra ID authentication, JWT-based authorization, and role-based access control to secure API endpoints and manage user permissions.",
+      "Wrote automated tests using xUnit and Postman, investigated production issues, and integrated Serilog for structured logging and audit tracking of application changes.",
+      "Collaborated with stakeholders to translate business requirements into backend features, contributing to code reviews, pull requests, and CI/CD pipelines using Azure DevOps.",
     ],
   },
   {
@@ -23,11 +24,11 @@ const experiences = [
     period: "Sep 2025 - Present",
     focus: "Full-Stack Systems / Campus Software",
     highlights: [
-      "Built a municipal citation management application using React, TypeScript, Express, and PostgreSQL.",
-      "Integrated barcode scanning and GPS-based incident mapping for driver's license data capture and incident location tracking.",
-      "Created a CI/CD pipeline with GitHub Actions and Microsoft Azure to automate application build, testing, and deployment workflows.",
-      "Assessed application security using OWASP guidance, identifying authentication, session management, and data integrity risks.",
-      "Built a university scheduling and enrollment platform (ASP.NET Core, EF Core, MySQL) that assigns courses, professors, and classrooms under scheduling constraints, plus a backend service that forecasts course demand from historical enrollment data and recommends schedules.",
+      "Independently developed and maintained four concurrent full-stack projects using React, TypeScript, Express, ASP.NET Core, PostgreSQL, and MySQL.",
+      "Oskaloosa Police Department: Built a citation management system with driver's license barcode scanning to automatically populate citations, integrated third-party geocoding APIs for street addresses, implemented role-based access control, and wrote automated tests using Vitest and Playwright.",
+      "William Penn University - Scheduling System: Developed a course scheduling and enrollment platform using ASP.NET Core, EF Core, and MySQL, handling professor, classroom, and course assignments under scheduling constraints. Built backend services to forecast course demand using historical enrollment data and implemented CI/CD pipelines with GitHub Actions and Azure.",
+      "52577 Scholarship Foundation: Developed the foundation's main website and scholarship application system using React, TypeScript, and MySQL, enabling students to apply for scholarships while administrators and counselors review applications, manage approvals, evaluate academic performance, and track grades.",
+      "William Penn University - Recruitment System: Built a full-stack recruitment platform using React, TypeScript, and MySQL, allowing prospective students to enter the recruitment process while admissions staff and coaches manage recruit profiles, track application progress, and coordinate recruitment decisions.",
     ],
   },
   {
@@ -41,19 +42,6 @@ const experiences = [
       "Delivered custom software and asset-management systems for 4 mechanical and industrial maintenance companies in Brazil, owning the full lifecycle from requirements and architecture to testing, cloud deployment, and client support.",
       "Replaced paper-based workflows with a barcode-based asset tracking and preventive-maintenance system for industrial compressors.",
       "Built full-stack apps (C#, .NET, React, Blazor, PostgreSQL) for inventory, maintenance scheduling, work orders, and reporting.",
-    ],
-  },
-  {
-    id: "004",
-    title: "Software Engineering Intern",
-    company: "VTEX",
-    location: "Remote",
-    period: "May 2024 - Aug 2024",
-    focus: "CRM Platform / Backend Services",
-    highlights: [
-      "Developed backend services for a CRM platform using C#, .NET, ASP.NET Core, and REST APIs.",
-      "Designed relational data models and data access with EF Core, LINQ, and schema migrations.",
-      "Built reusable Blazor components, integrated APIs, and fixed backend defects through testing and code review.",
     ],
   },
 ];

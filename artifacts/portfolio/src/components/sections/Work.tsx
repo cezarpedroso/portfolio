@@ -171,16 +171,16 @@ const projects: Project[] = [
   },
   {
     id: "004",
-    title: "Eltse Hall",
+    title: "WPU Residence Life Management Portal",
     year: "2026",
     type: "Residence Life / Operations",
     stack: "React / TypeScript / ASP.NET Core / EF Core / Azure",
     description:
-      "A residence life management platform for scheduling, resident management, and dorm checks used by Resident Assistants and the Hall Director.",
+      "A residence life management portal for duty schedules, resident records, room checks, dorm sweeps, incident reports, and PDF downloads used by school staff with 25+ active users.",
     highlights: [
-      "Built a full-stack platform for scheduling, resident management, and dorm checks, with ongoing updates shaped by staff feedback.",
-      "Structured the backend across Domain, Application, Infrastructure, and API layers with ASP.NET Identity role-based authorization, antiforgery protection, and rate limiting.",
-      "Tested domain, authentication, and scheduling logic with xUnit and EF Core InMemory, then deployed to Azure Web App through GitHub Actions CI/CD.",
+      "Built a React, TypeScript, ASP.NET Core, and EF Core application for duty schedules, resident records, room checks, dorm sweeps, incident reports, and PDF downloads, replacing manual forms and reducing duplicate work for staff.",
+      "Implemented sign-in with Microsoft Entra ID and added role-based access so staff only see the information and hall data assigned to them.",
+      "Tested scheduling, authentication, and resident-management logic with xUnit; deployed updates through GitHub Actions to Azure Web App.",
     ],
     github: "https://github.com/cezarpedroso/eltse-hall",
     slides: [],
