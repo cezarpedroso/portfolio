@@ -1,8 +1,9 @@
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { SiGithub } from "react-icons/si";
-import { Linkedin } from "lucide-react";
+import { FileText, Linkedin, Mail } from "lucide-react";
 import pfpPath from "@assets/pfp_1783130743782.png";
+import { ResumeViewer } from "@/components/ResumeViewer";
 
 function MatrixCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -58,14 +59,31 @@ function MatrixCanvas() {
     return () => cancelAnimationFrame(raf);
   }, []);
 
-  return <canvas ref={canvasRef} style={{ width: "100%", height: "100%", display: "block" }} />;
+  return (
+    <canvas
+      ref={canvasRef}
+      style={{ width: "100%", height: "100%", display: "block" }}
+    />
+  );
 }
 
 export function Hero() {
   const [flipped, setFlipped] = useState(false);
+  const [resumeOpen, setResumeOpen] = useState(false);
+
+  const openResume = () => {
+    setResumeOpen(true);
+  };
+
+  const closeResume = () => {
+    setResumeOpen(false);
+  };
 
   return (
-    <section id="hero" className="min-h-[80vh] flex flex-col md:flex-row items-center pt-24 pb-10 gap-12">
+    <section
+      id="hero"
+      className="min-h-[80vh] flex flex-col md:flex-row items-center pt-24 pb-10 gap-12"
+    >
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -104,14 +122,37 @@ export function Hero() {
           </div>
         </div>
 
-        <p className="font-sans font-light text-base md:text-lg text-foreground/80 leading-relaxed mb-10 max-w-xl">
-          I build reliable, maintainable software with a focus on clean code. Currently building enterprise .NET applications.
+        <p className="font-sans font-light text-base md:text-lg text-foreground/80 leading-relaxed mb-6 max-w-xl">
+          I build reliable, maintainable software with a focus on clean code.
+          Currently building enterprise .NET applications.
         </p>
+
+        <div className="mb-10 flex flex-wrap gap-3">
+          <button
+            type="button"
+            onClick={openResume}
+            className="inline-flex items-center gap-2 border border-primary bg-primary px-4 py-2.5 font-mono text-xs tracking-wider text-primary-foreground uppercase transition-colors hover:bg-primary/85"
+            data-testid="button-view-resume"
+          >
+            <FileText className="h-4 w-4" />
+            View Resume
+          </button>
+          <a
+            href="mailto:cezarapedroso@gmail.com"
+            className="inline-flex items-center gap-2 border border-border px-4 py-2.5 font-mono text-xs tracking-wider text-foreground uppercase transition-colors hover:border-primary/60 hover:text-primary"
+            data-testid="button-email-hero"
+          >
+            <Mail className="h-4 w-4" />
+            Send Email
+          </a>
+        </div>
 
         <div className="pt-6 border-t border-border flex flex-col sm:flex-row gap-4 sm:gap-8 font-mono text-xs text-muted-foreground uppercase tracking-wider">
           <div className="flex flex-col gap-1">
             <span className="text-primary/70">Focus</span>
-            <span className="text-foreground">.NET Development / Full-Stack Developmnt / DevOps</span>
+            <span className="text-foreground">
+              .NET Development / Full-Stack Developmnt / DevOps
+            </span>
           </div>
           <div className="flex flex-col gap-1">
             <span className="text-primary/70">Status</span>
@@ -149,7 +190,10 @@ export function Hero() {
           >
             {/* Front — portrait photo */}
             <div
-              style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden" }}
+              style={{
+                backfaceVisibility: "hidden",
+                WebkitBackfaceVisibility: "hidden",
+              }}
               className="absolute inset-0 border border-primary/20 overflow-hidden"
             >
               <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-primary/50 z-10" />
@@ -180,9 +224,7 @@ export function Hero() {
               <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-white/20 z-10" />
               <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-white/20 z-10" />
               <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-white/20 z-10" />
-              <div className="w-full h-full">
-                {flipped && <MatrixCanvas />}
-              </div>
+              <div className="w-full h-full">{flipped && <MatrixCanvas />}</div>
               <div className="absolute bottom-3 right-3 font-mono text-[10px] text-white/40 uppercase tracking-widest z-10">
                 SYS / ACTIVE
               </div>
@@ -190,6 +232,8 @@ export function Hero() {
           </div>
         </div>
       </motion.div>
+
+      <ResumeViewer open={resumeOpen} onClose={closeResume} />
     </section>
   );
 }
