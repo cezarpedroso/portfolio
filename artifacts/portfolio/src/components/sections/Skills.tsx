@@ -59,7 +59,7 @@ export function Skills() {
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.4, ease: "easeOut" }}
       >
-        <h2 className="mb-10 font-mono text-sm tracking-widest text-primary uppercase">
+        <h2 className="mb-10 font-mono text-base tracking-widest text-primary uppercase">
           03 Skills
         </h2>
 
@@ -70,17 +70,17 @@ export function Skills() {
             return (
               <article
                 key={group.title}
-                className={`bg-background p-5 sm:p-6 ${
+                className={`bg-background p-6 sm:p-7 ${
                   group.primary ? "shadow-[inset_3px_0_0_hsl(var(--primary))]" : ""
                 }`}
               >
-                <div className="mb-5 flex items-center gap-3">
-                  <Icon className="h-4 w-4 text-primary" aria-hidden="true" />
-                  <h3 className="font-mono text-xs tracking-widest text-foreground uppercase">
+                <div className="mb-6 flex items-center gap-3">
+                  <Icon className="h-5 w-5 text-primary" aria-hidden="true" />
+                  <h3 className="font-mono text-base tracking-widest text-foreground uppercase">
                     {group.title}
                   </h3>
                   {group.primary && (
-                    <span className="border border-primary/40 px-2 py-0.5 font-mono text-[9px] tracking-wider text-primary uppercase">
+                    <span className="border border-primary/40 px-2.5 py-1 font-mono text-[10px] tracking-wider text-primary uppercase">
                       Core Focus
                     </span>
                   )}
@@ -90,7 +90,7 @@ export function Skills() {
                   {group.skills.map((skill) => (
                     <li
                       key={skill}
-                      className="border border-border/70 bg-muted/20 px-2.5 py-1.5 font-mono text-[10px] tracking-wide text-foreground/75"
+                      className="border border-border/70 bg-muted/20 px-3 py-2 font-mono text-sm tracking-wide text-foreground/80"
                       data-testid={`skill-${skill.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
                     >
                       {skill}

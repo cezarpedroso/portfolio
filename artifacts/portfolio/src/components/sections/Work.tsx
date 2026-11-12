@@ -279,7 +279,7 @@ function ProjectCarousel({
     >
       <div className="mt-5 border border-border/60 bg-muted/20">
         <div className="flex items-center justify-between px-4 py-2 border-b border-border/60">
-          <span className="font-mono text-[10px] tracking-widest text-muted-foreground uppercase">
+          <span className="font-mono text-xs tracking-widest text-muted-foreground uppercase">
             {String(current + 1).padStart(2, "0")} /{" "}
             {String(slides.length).padStart(2, "0")} — {slide.label}
           </span>
@@ -289,7 +289,7 @@ function ProjectCarousel({
                 href={slide.source}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 font-mono text-[10px] tracking-widest text-primary hover:text-secondary transition-colors uppercase"
+                className="inline-flex items-center gap-1.5 font-mono text-xs tracking-widest text-primary hover:text-secondary transition-colors uppercase"
               >
                 <ExternalLink className="w-3 h-3" />
                 Open {slide.kind === "pdf" ? "PDF" : "Report"}
@@ -383,7 +383,7 @@ export function Work() {
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.4, ease: "easeOut" }}
       >
-        <h2 className="mb-10 font-mono text-sm tracking-widest text-primary uppercase">
+        <h2 className="mb-10 font-mono text-base tracking-widest text-primary uppercase">
           01 Projects
         </h2>
 
@@ -391,7 +391,7 @@ export function Work() {
           {projectsInDisplayOrder.map((project) => (
             <article key={project.id} className="pt-6 border-t border-border">
               <div className="mb-3">
-                <div className="font-mono text-xs tracking-wider text-muted-foreground mb-2">
+                <div className="mb-2 font-mono text-sm tracking-wider text-muted-foreground">
                   PROJECT {project.id}
                 </div>
                 {project.slides.length > 0 ? (
@@ -400,19 +400,19 @@ export function Work() {
                     className="text-left group w-full"
                     aria-expanded={openCarousel === project.id}
                   >
-                    <h3 className="font-sans font-medium text-2xl text-foreground mb-1 group-hover:text-primary transition-colors inline-flex items-center gap-2 flex-wrap">
+                    <h3 className="mb-1 inline-flex flex-wrap items-center gap-2 font-sans text-2xl font-medium text-foreground transition-colors group-hover:text-primary md:text-3xl">
                       {project.title}
-                      <span className="border border-primary/30 bg-primary/5 px-2.5 py-1.5 font-mono text-[11px] tracking-wider text-muted-foreground uppercase transition-colors group-hover:border-primary/60 group-hover:text-primary">
+                      <span className="border border-primary/30 bg-primary/5 px-3 py-1.5 font-mono text-xs tracking-wider text-muted-foreground uppercase transition-colors group-hover:border-primary/60 group-hover:text-primary">
                         {openCarousel === project.id ? "CLOSE ↑" : "PREVIEW ↓"}
                       </span>
                     </h3>
                   </button>
                 ) : (
-                  <h3 className="font-sans font-medium text-2xl text-foreground mb-1">
+                  <h3 className="mb-1 font-sans text-2xl font-medium text-foreground md:text-3xl">
                     {project.title}
                   </h3>
                 )}
-                <div className="flex flex-wrap gap-x-6 gap-y-1 font-mono text-xs tracking-wider text-muted-foreground uppercase mt-2">
+                <div className="mt-3 flex flex-wrap gap-x-6 gap-y-2 font-mono text-sm tracking-wider text-muted-foreground uppercase">
                   <span>
                     TYPE:{" "}
                     <span className="text-foreground/80">{project.type}</span>
@@ -427,13 +427,13 @@ export function Work() {
                   </span>
                 </div>
                 <div className="mt-3 flex flex-wrap items-center gap-2">
-                  <span className="font-mono text-[10px] tracking-wider text-muted-foreground uppercase">
+                  <span className="font-mono text-xs tracking-wider text-muted-foreground uppercase">
                     Stack:
                   </span>
                   {project.stack.split(" / ").map((technology) => (
                     <span
                       key={technology}
-                      className="border border-border/70 bg-muted/20 px-2 py-1 font-mono text-[10px] tracking-wide text-foreground/75"
+                      className="border border-border/70 bg-muted/20 px-2.5 py-1.5 font-mono text-xs tracking-wide text-foreground/75"
                     >
                       {technology}
                     </span>
@@ -441,15 +441,15 @@ export function Work() {
                 </div>
               </div>
 
-              <p className="font-sans text-sm text-foreground/80 leading-relaxed max-w-2xl mb-5 mt-4">
+              <p className="mb-5 mt-5 max-w-3xl font-sans text-base leading-relaxed text-foreground/80 md:text-lg">
                 {project.description}
               </p>
 
-              <ul className="max-w-2xl space-y-2 pl-5 mb-5 list-disc marker:text-primary">
+              <ul className="mb-5 max-w-3xl space-y-3 pl-5 list-disc marker:text-primary">
                 {project.highlights.map((highlight) => (
                   <li
                     key={highlight}
-                    className="font-sans text-sm text-foreground/75 leading-relaxed pl-1"
+                    className="pl-1 font-sans text-base leading-relaxed text-foreground/75"
                   >
                     {highlight}
                   </li>
@@ -472,7 +472,7 @@ export function Work() {
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 font-mono text-xs tracking-widest text-primary hover:text-secondary transition-colors uppercase hover:underline underline-offset-4"
+                      className="inline-flex items-center gap-2 font-mono text-sm tracking-widest text-primary hover:text-secondary transition-colors uppercase hover:underline underline-offset-4"
                     >
                       <ExternalLink className="w-3.5 h-3.5" />
                       Visit Live Site
@@ -483,7 +483,7 @@ export function Work() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 font-mono text-xs tracking-widest text-primary hover:text-secondary transition-colors uppercase hover:underline underline-offset-4"
+                      className="inline-flex items-center gap-2 font-mono text-sm tracking-widest text-primary hover:text-secondary transition-colors uppercase hover:underline underline-offset-4"
                     >
                       <SiGithub className="w-3.5 h-3.5" />
                       View on GitHub

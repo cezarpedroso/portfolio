@@ -109,7 +109,7 @@ export function Experience() {
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.4, ease: "easeOut" }}
       >
-        <h2 className="mb-10 font-mono text-sm tracking-widest text-primary uppercase">
+        <h2 className="mb-10 font-mono text-base tracking-widest text-primary uppercase">
           02 Experience
         </h2>
 
@@ -117,38 +117,38 @@ export function Experience() {
           {experiences.map((exp) => (
             <article key={exp.id} className="pt-6 border-t border-border">
               <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-3 gap-2">
-                <h3 className="font-sans font-medium text-lg text-foreground">
-                  <span className="font-mono text-xs text-muted-foreground mr-4">
+                <h3 className="font-sans text-xl font-medium text-foreground md:text-2xl">
+                  <span className="mr-4 font-mono text-sm text-muted-foreground">
                     ENTRY {exp.id}
                   </span>
                   {exp.title}
                 </h3>
-                <span className="font-mono text-xs tracking-wider text-muted-foreground uppercase">
+                <span className="font-mono text-sm tracking-wider text-muted-foreground uppercase">
                   {exp.period}
                 </span>
               </div>
 
-              <div className="font-mono text-xs tracking-wider text-primary mb-2 uppercase">
+              <div className="mb-2 font-mono text-sm tracking-wider text-primary uppercase">
                 COMPANY:{" "}
                 <span className="font-semibold text-foreground">
                   {exp.company}
                 </span>
               </div>
 
-              <div className="font-mono text-xs tracking-wider text-primary mb-2 uppercase">
+              <div className="mb-2 font-mono text-sm tracking-wider text-primary uppercase">
                 LOCATION:{" "}
                 <span className="text-foreground/80">{exp.location}</span>
               </div>
 
-              <div className="font-mono text-xs tracking-wider text-primary mb-4 uppercase">
+              <div className="mb-5 font-mono text-sm tracking-wider text-primary uppercase">
                 FOCUS: <span className="text-foreground/80">{exp.focus}</span>
               </div>
 
-              <ul className="max-w-3xl space-y-3 pl-5 list-disc marker:text-primary">
+              <ul className="max-w-4xl space-y-3 pl-5 list-disc marker:text-primary">
                 {exp.highlights.map((highlight) => (
                   <li
                     key={highlight.label}
-                    className="font-sans text-sm text-foreground/80 leading-relaxed pl-1"
+                    className="pl-1 font-sans text-base leading-relaxed text-foreground/80 md:text-[17px]"
                   >
                     <strong className="font-medium text-foreground">
                       {highlight.label}:
