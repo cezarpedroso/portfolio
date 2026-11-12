@@ -3,5 +3,5 @@
   "buildCommand": "pnpm -C artifacts/portfolio build",
   "outputDirectory": "artifacts/portfolio/dist",
   "installCommand": "pnpm install",
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
 }
