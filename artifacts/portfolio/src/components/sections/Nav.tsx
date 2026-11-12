@@ -1,4 +1,4 @@
-import { LockKeyhole, Moon, Sun } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
 const navItems = [
@@ -55,16 +55,6 @@ export function Nav() {
               </span>
             </a>
           ))}
-          <a
-            href={`${import.meta.env.BASE_URL}admin`}
-            data-testid="nav-admin"
-            className="inline-flex items-center gap-1.5 whitespace-nowrap border border-border/70 px-2 py-1.5 text-[10px] tracking-wider text-foreground transition-colors hover:border-primary/60 hover:text-primary sm:px-2.5"
-            aria-label="Admin login"
-          >
-            <LockKeyhole className="h-3 w-3" aria-hidden="true" />
-            <span className="hidden md:inline">Admin Login</span>
-            <span className="md:hidden">Admin</span>
-          </a>
         </div>
       </div>
     </nav>

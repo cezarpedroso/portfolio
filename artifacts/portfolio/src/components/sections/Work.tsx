@@ -82,7 +82,7 @@ const projects: Project[] = [
     ],
   },
   {
-    id: "002",
+    id: "004",
     title: "SQL Schema Architect",
     year: "2023",
     type: "Developer Tooling",
@@ -174,7 +174,7 @@ const projects: Project[] = [
     ],
   },
   {
-    id: "004",
+    id: "002",
     title: "WPU Residence Life Management Portal",
     year: "2026",
     type: "Residence Life / Operations",
@@ -251,6 +251,10 @@ const projects: Project[] = [
     ],
   },
 ];
+
+const projectsInDisplayOrder = [...projects].sort((a, b) =>
+  a.id.localeCompare(b.id),
+);
 
 function ProjectCarousel({
   slides,
@@ -384,7 +388,7 @@ export function Work() {
         </h2>
 
         <div className="space-y-10">
-          {projects.map((project) => (
+          {projectsInDisplayOrder.map((project) => (
             <article key={project.id} className="pt-6 border-t border-border">
               <div className="mb-3">
                 <div className="font-mono text-xs tracking-wider text-muted-foreground mb-2">

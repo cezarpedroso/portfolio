@@ -28,9 +28,18 @@ function Home() {
         <Contact />
       </main>
       <footer className="border-t border-border/40 py-8 text-center">
-        <p className="font-mono text-xs tracking-widest text-muted-foreground uppercase">
-          © 2026 Cezar Pedroso
-        </p>
+        <div className="flex items-center justify-center gap-3 font-mono text-xs tracking-widest text-muted-foreground uppercase">
+          <span>© 2026 Cezar Pedroso</span>
+          <span aria-hidden="true" className="text-border">
+            /
+          </span>
+          <a
+            href={`${import.meta.env.BASE_URL}admin`}
+            className="text-[10px] tracking-wider text-muted-foreground/55 transition-colors hover:text-primary hover:underline underline-offset-4"
+          >
+            Admin Login
+          </a>
+        </div>
       </footer>
     </div>
   );
