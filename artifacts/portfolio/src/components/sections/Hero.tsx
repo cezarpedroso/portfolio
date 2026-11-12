@@ -117,30 +117,32 @@ export function Hero() {
           CEZAR PEDROSO
         </h1>
 
-        <div className="flex items-center gap-3 mb-6">
+        <div className="mb-6">
           <h2 className="font-sans font-light text-lg md:text-xl text-foreground/70 tracking-wide">
             Software Engineer | .NET &amp; Backend Systems
           </h2>
-          <div className="flex items-center gap-2">
+          <div className="mt-3 flex items-center gap-2">
             <a
               href="https://github.com/cezarpedroso"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
+              title="GitHub"
               data-testid="link-github-hero"
-              className="text-muted-foreground hover:text-primary transition-colors"
+              className="inline-flex h-8 w-8 items-center justify-center border border-border/70 text-muted-foreground transition-colors hover:border-primary/60 hover:text-primary"
             >
-              <SiGithub className="w-4 h-4" />
+              <SiGithub className="h-4 w-4" />
             </a>
             <a
               href="https://www.linkedin.com/in/cezaramp"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
+              title="LinkedIn"
               data-testid="link-linkedin-hero"
-              className="text-muted-foreground hover:text-primary transition-colors"
+              className="inline-flex h-8 w-8 items-center justify-center border border-border/70 text-muted-foreground transition-colors hover:border-primary/60 hover:text-primary"
             >
-              <Linkedin className="w-4 h-4" />
+              <Linkedin className="h-4 w-4" />
             </a>
           </div>
         </div>
