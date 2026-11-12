@@ -21,6 +21,25 @@ function MatrixCanvas() {
     resize();
 
     const fontSize = 13;
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (prefersReducedMotion) {
+      ctx.fillStyle = "#000000";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.font = `${fontSize}px 'IBM Plex Mono', monospace`;
+
+      for (let x = 0; x < canvas.width; x += fontSize * 0.65) {
+        for (let y = fontSize; y < canvas.height; y += fontSize) {
+          ctx.fillStyle = Math.random() > 0.82 ? "#aaaaaa" : "#555555";
+          ctx.fillText(Math.random() > 0.5 ? "1" : "0", x, y);
+        }
+      }
+
+      return;
+    }
+
     let cols = Math.floor(canvas.width / (fontSize * 0.65));
     let drops = Array(cols).fill(1);
 
@@ -55,8 +74,12 @@ function MatrixCanvas() {
       raf = requestAnimationFrame(draw);
     };
 
+    window.addEventListener("resize", resize);
     raf = requestAnimationFrame(draw);
-    return () => cancelAnimationFrame(raf);
+    return () => {
+      window.removeEventListener("resize", resize);
+      cancelAnimationFrame(raf);
+    };
   }, []);
 
   return (
@@ -96,7 +119,7 @@ export function Hero() {
 
         <div className="flex items-center gap-3 mb-6">
           <h2 className="font-sans font-light text-lg md:text-xl text-foreground/70 tracking-wide">
-            Software Engineer
+            Software Engineer | .NET &amp; Backend Systems
           </h2>
           <div className="flex items-center gap-2">
             <a
@@ -123,8 +146,9 @@ export function Hero() {
         </div>
 
         <p className="font-sans font-light text-base md:text-lg text-foreground/80 leading-relaxed mb-6 max-w-xl">
-          I build reliable, maintainable software with a focus on clean code.
-          Currently building enterprise .NET applications.
+          I build backend, internal, and full-stack applications for insurance,
+          municipal, education, and industrial teams—turning operational needs
+          into secure, maintainable software.
         </p>
 
         <div className="mb-10 flex flex-wrap gap-3">
@@ -151,12 +175,12 @@ export function Hero() {
           <div className="flex flex-col gap-1">
             <span className="text-primary/70">Focus</span>
             <span className="text-foreground">
-              .NET Development / Full-Stack Developmnt / DevOps
+              .NET / Backend Systems / Full-Stack Applications
             </span>
           </div>
           <div className="flex flex-col gap-1">
             <span className="text-primary/70">Status</span>
-            <span className="text-foreground">Software Engineering Intern</span>
+            <span className="text-foreground">Available December 2026</span>
           </div>
           <div className="flex flex-col gap-1">
             <span className="text-primary/70">Location</span>
@@ -171,11 +195,16 @@ export function Hero() {
         transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
         className="w-full md:w-[45%] flex justify-center md:justify-end"
       >
-        <div
-          className="relative w-full max-w-sm aspect-[4/5] cursor-pointer"
+        <button
+          type="button"
+          className="relative block w-full max-w-sm aspect-[4/5] cursor-pointer text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background"
           style={{ perspective: "1000px" }}
           onMouseEnter={() => setFlipped(true)}
           onMouseLeave={() => setFlipped(false)}
+          onClick={() => setFlipped((current) => !current)}
+          onBlur={() => setFlipped(false)}
+          aria-label="Toggle Cezar Pedroso portrait animation"
+          aria-pressed={flipped}
           data-testid="hero-photo-flipper"
         >
           <div
@@ -230,7 +259,7 @@ export function Hero() {
               </div>
             </div>
           </div>
-        </div>
+        </button>
       </motion.div>
 
       <ResumeViewer open={resumeOpen} onClose={closeResume} />

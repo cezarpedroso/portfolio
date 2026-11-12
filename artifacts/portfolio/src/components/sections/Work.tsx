@@ -14,6 +14,7 @@ type Project = {
   title: string;
   year: string;
   type: string;
+  status: string;
   stack: string;
   description: string;
   highlights: string[];
@@ -31,6 +32,7 @@ const projects: Project[] = [
     title: "DotDet",
     year: "2026",
     type: "Developer Tooling / Code Analysis",
+    status: "Live",
     stack: ".NET 9 / ASP.NET Core / Roslyn / React / TypeScript",
     description:
       "A production-readiness analysis workbench that turns static findings from ASP.NET Core solutions into evidence-backed engineering guidance.",
@@ -84,6 +86,7 @@ const projects: Project[] = [
     title: "SQL Schema Architect",
     year: "2023",
     type: "Developer Tooling",
+    status: "Live",
     stack: "C# / .NET / SQL / EF Core / Blazor",
     description:
       "A developer tool that converts SQL database definitions into a clean, production-ready Entity Framework Core foundation.",
@@ -132,12 +135,13 @@ const projects: Project[] = [
     title: "Document Approval System",
     year: "2026",
     type: "Document Governance / Workflow",
+    status: "Source Available",
     stack: ".NET 9 / ASP.NET Core / EF Core / React / TypeScript",
     description:
-      "A production-oriented document governance application for creating, reviewing, approving, publishing, and auditing controlled documents.",
+      "A controlled-document workflow designed to preserve decision integrity across drafting, review, approval, publication, and audit.",
     highlights: [
       "Enforces department-scoped Author, Reviewer, Approver, and Administrator roles through server-side authorization and an explicit workflow state machine.",
-      "Preserves immutable version history, pins the exact approved version, and protects edits and decisions with optimistic concurrency controls.",
+      "Preserves immutable version history, pins the exact approved version, and uses optimistic concurrency to prevent silent conflicts during edits and decisions.",
       "Combines reviewer and approver queues with a searchable administrative audit trail, Microsoft Entra ID integration, and security-focused unit and integration tests.",
     ],
     github: "https://github.com/cezarpedroso/Document-Approval-System",
@@ -174,29 +178,52 @@ const projects: Project[] = [
     title: "WPU Residence Life Management Portal",
     year: "2026",
     type: "Residence Life / Operations",
+    status: "Deployed Internally",
     stack: "React / TypeScript / ASP.NET Core / EF Core / Azure",
     description:
-      "A residence life management portal for duty schedules, resident records, room checks, dorm sweeps, incident reports, and PDF downloads used by school staff with 25+ active users.",
+      "A residence life operations portal deployed to 25+ active staff users for schedules, resident records, room checks, sweeps, incident reports, and PDF exports.",
     highlights: [
-      "Built a React, TypeScript, ASP.NET Core, and EF Core application for duty schedules, resident records, room checks, dorm sweeps, incident reports, and PDF downloads, replacing manual forms and reducing duplicate work for staff.",
-      "Implemented sign-in with Microsoft Entra ID and added role-based access so staff only see the information and hall data assigned to them.",
-      "Tested scheduling, authentication, and resident-management logic with xUnit; deployed updates through GitHub Actions to Azure Web App.",
+      "Replaced manual forms and duplicate entry with structured workflows for day-to-day residence life operations.",
+      "Implemented Microsoft Entra ID sign-in and role-based access so staff only see assigned hall data and authorized functions.",
+      "Covered scheduling, authentication, and resident-management logic with xUnit and delivered updates to Azure Web App through GitHub Actions.",
     ],
     github: "https://github.com/cezarpedroso/eltse-hall",
-    slides: [],
+    slides: [
+      {
+        label: "Portal Login",
+        source: projectMedia("wpu-residence-life/portal-login.png"),
+        kind: "image",
+      },
+      {
+        label: "Residence Life Home",
+        source: projectMedia("wpu-residence-life/portal-home.png"),
+        kind: "image",
+      },
+      {
+        label: "Room Check Workflow",
+        source: projectMedia("wpu-residence-life/dorm-check.png"),
+        kind: "image",
+      },
+      {
+        label: "Incident Report Workflow",
+        source: projectMedia("wpu-residence-life/incident-report.png"),
+        kind: "image",
+      },
+    ],
   },
   {
     id: "005",
     title: "Citation Management System",
     year: "2025",
     type: "Internal Systems",
-    stack: "Node.js / PostgreSQL / Tailwind CSS",
+    status: "Internal System",
+    stack: "React / TypeScript / Express / PostgreSQL",
     description:
-      "A full-stack municipal platform that moves citation issuance and citizen response workflows online for the City of Oskaloosa.",
+      "A PostgreSQL-backed municipal workflow that moves citation issuance, administration, and citizen responses online for the City of Oskaloosa.",
     highlights: [
-      "Enables law enforcement officers to issue and manage citations digitally while giving citizens a clear path to view and contest them online.",
-      "Uses role-based access control, user and infraction management, media uploads, and PDF generation to support the complete operational workflow.",
-      "Adds analytics and detailed audit logs for administrative visibility, accountability, and reporting.",
+      "Added driver's-license barcode scanning and third-party geocoding to reduce manual entry for driver and location data.",
+      "Separates officer, administrator, and citizen workflows with role-based access control, citation search, and online response paths.",
+      "Supports infraction management, media uploads, printable citations, analytics, and audit logs for operational accountability.",
     ],
     slides: [
       {
@@ -286,6 +313,7 @@ function ProjectCarousel({
               src={slide.source}
               alt={slide.label}
               className="w-full h-full object-contain object-center"
+              loading="lazy"
             />
           ) : (
             <iframe
@@ -351,9 +379,9 @@ export function Work() {
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.4, ease: "easeOut" }}
       >
-        <div className="mb-10 font-mono text-sm tracking-widest text-primary uppercase">
+        <h2 className="mb-10 font-mono text-sm tracking-widest text-primary uppercase">
           01 Projects
-        </div>
+        </h2>
 
         <div className="space-y-10">
           {projects.map((project) => (
@@ -370,7 +398,7 @@ export function Work() {
                   >
                     <h3 className="font-sans font-medium text-2xl text-foreground mb-1 group-hover:text-primary transition-colors inline-flex items-center gap-2 flex-wrap">
                       {project.title}
-                      <span className="font-mono text-[10px] text-muted-foreground/50 tracking-wider uppercase border border-border/60 px-1.5 py-0.5 group-hover:border-primary/40 group-hover:text-primary/60 transition-colors">
+                      <span className="border border-primary/30 bg-primary/5 px-2.5 py-1.5 font-mono text-[11px] tracking-wider text-muted-foreground uppercase transition-colors group-hover:border-primary/60 group-hover:text-primary">
                         {openCarousel === project.id ? "CLOSE ↑" : "PREVIEW ↓"}
                       </span>
                     </h3>
@@ -390,9 +418,22 @@ export function Work() {
                     <span className="text-foreground/80">{project.year}</span>
                   </span>
                   <span>
-                    STACK:{" "}
-                    <span className="text-foreground/80">{project.stack}</span>
+                    STATUS:{" "}
+                    <span className="text-foreground/80">{project.status}</span>
                   </span>
+                </div>
+                <div className="mt-3 flex flex-wrap items-center gap-2">
+                  <span className="font-mono text-[10px] tracking-wider text-muted-foreground uppercase">
+                    Stack:
+                  </span>
+                  {project.stack.split(" / ").map((technology) => (
+                    <span
+                      key={technology}
+                      className="border border-border/70 bg-muted/20 px-2 py-1 font-mono text-[10px] tracking-wide text-foreground/75"
+                    >
+                      {technology}
+                    </span>
+                  ))}
                 </div>
               </div>
 

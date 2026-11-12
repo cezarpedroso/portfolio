@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Download, FileText, X } from "lucide-react";
 
 const resumeUrl = `${import.meta.env.BASE_URL}Cezar_Pedroso_Resume.pdf`;
@@ -9,14 +9,23 @@ type ResumeViewerProps = {
 };
 
 export function ResumeViewer({ open, onClose }: ResumeViewerProps) {
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
   useEffect(() => {
     if (!open) return;
 
     const previousOverflow = document.body.style.overflow;
+    const previousFocus = document.activeElement as HTMLElement | null;
     document.body.style.overflow = "hidden";
+    const focusFrame = window.requestAnimationFrame(() => {
+      closeButtonRef.current?.focus();
+    });
 
     return () => {
+      window.cancelAnimationFrame(focusFrame);
       document.body.style.overflow = previousOverflow;
+      previousFocus?.focus();
     };
   }, [open]);
 
@@ -24,7 +33,28 @@ export function ResumeViewer({ open, onClose }: ResumeViewerProps) {
     if (!open) return;
 
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") onClose();
+      if (event.key === "Escape") {
+        onClose();
+        return;
+      }
+
+      if (event.key !== "Tab" || !dialogRef.current) return;
+
+      const focusableElements = Array.from(
+        dialogRef.current.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), iframe, [tabindex]:not([tabindex="-1"])',
+        ),
+      );
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement?.focus();
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement?.focus();
+      }
     };
 
     window.addEventListener("keydown", handleKeyDown);
@@ -35,6 +65,7 @@ export function ResumeViewer({ open, onClose }: ResumeViewerProps) {
 
   return (
     <div
+      ref={dialogRef}
       className="fixed inset-0 z-[100] bg-background/95 p-2 backdrop-blur-md sm:p-4"
       role="dialog"
       aria-modal="true"
@@ -67,6 +98,7 @@ export function ResumeViewer({ open, onClose }: ResumeViewerProps) {
               Download PDF
             </a>
             <button
+              ref={closeButtonRef}
               type="button"
               onClick={onClose}
               className="text-muted-foreground transition-colors hover:text-foreground"

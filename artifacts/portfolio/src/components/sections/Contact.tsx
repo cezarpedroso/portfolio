@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 
 const resumeUrl = `${import.meta.env.BASE_URL}Cezar_Pedroso_Resume.pdf`;
@@ -12,11 +11,15 @@ export function Contact() {
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.4, ease: "easeOut" }}
       >
-        <div className="mb-12 font-mono text-sm tracking-widest text-primary uppercase">
-          04 Contact
-        </div>
+        <h2 className="mb-12 font-mono text-sm tracking-widest text-primary uppercase">
+          05 Contact
+        </h2>
 
         <div className="flex flex-col space-y-6 pt-6 border-t border-border">
+          <p className="max-w-xl font-sans text-base leading-relaxed text-foreground/75">
+            Interested in discussing a .NET, backend, or full-stack engineering
+            opportunity? Email me directly or connect through the links below.
+          </p>
           <a
             href="mailto:cezarapedroso@gmail.com"
             className="font-sans font-medium text-2xl md:text-3xl text-foreground hover:text-primary transition-colors self-start underline-offset-8 decoration-1 decoration-primary/30 hover:underline"
