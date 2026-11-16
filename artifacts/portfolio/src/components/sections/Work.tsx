@@ -82,7 +82,41 @@ const projects: Project[] = [
     ],
   },
   {
-    id: "004",
+    id: "002",
+    title: "QuoteAI",
+    year: "2026",
+    type: "AI-Powered Procurement",
+    status: "Live",
+    stack: "Next.js / React / TypeScript / Supabase / PostgreSQL / OpenRouter",
+    description:
+      "A procurement workspace for structuring requests, collecting supplier quotations, and turning unstructured commercial terms into reviewable decision data.",
+    highlights: [
+      "Uses OpenRouter-powered extraction and Zod validation to identify product details, prices, delivery terms, and payment terms while keeping users in control of review and corrections before saving.",
+      "Structures requests with line items, quantities, units, specifications, and reference currencies so supplier submissions can be compared against the same purchasing scope.",
+      "Calculates comparable costs, surfaces missing information, and ranks quotations with configurable weights for price, delivery time, and completeness.",
+    ],
+    github: "https://github.com/cezarpedroso/QuoteAI",
+    live: "https://quote-ai-iota.vercel.app/",
+    slides: [
+      {
+        label: "Secure Sign In",
+        source: projectMedia("quote-ai/sign-in.png"),
+        kind: "image",
+      },
+      {
+        label: "Create a Quotation Request",
+        source: projectMedia("quote-ai/new-request.png"),
+        kind: "image",
+      },
+      {
+        label: "Supplier Comparison",
+        source: projectMedia("quote-ai/supplier-comparison.png"),
+        kind: "image",
+      },
+    ],
+  },
+  {
+    id: "005",
     title: "SQL Schema Architect",
     year: "2023",
     type: "Developer Tooling",
@@ -131,7 +165,7 @@ const projects: Project[] = [
     ],
   },
   {
-    id: "003",
+    id: "004",
     title: "Document Approval System",
     year: "2026",
     type: "Document Governance / Workflow",
@@ -174,7 +208,7 @@ const projects: Project[] = [
     ],
   },
   {
-    id: "002",
+    id: "003",
     title: "WPU Residence Life Management Portal",
     year: "2026",
     type: "Residence Life / Operations",
@@ -212,7 +246,7 @@ const projects: Project[] = [
     ],
   },
   {
-    id: "005",
+    id: "006",
     title: "Citation Management System",
     year: "2025",
     type: "Internal Systems",
