@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Download, FileText, X } from "lucide-react";
 
-const resumeUrl = `${import.meta.env.BASE_URL}Cezar_Pedroso_Resume.pdf`;
+const resumeUrl = `${import.meta.env.BASE_URL}Cezar_Pedroso_Resume.pdf?v=2026-11-16`;
 
 type ResumeViewerProps = {
   open: boolean;
@@ -111,7 +111,7 @@ export function ResumeViewer({ open, onClose }: ResumeViewerProps) {
 
         <div className="min-h-0 flex-1 bg-muted/20 p-2 sm:p-3">
           <iframe
-            src={`${resumeUrl}#page=1&view=FitH&toolbar=1&navpanes=0`}
+            src={`${resumeUrl}#page=1&zoom=100&toolbar=1&navpanes=0`}
             title="Cezar Pedroso resume"
             className="h-full w-full border-0 bg-white"
             loading="lazy"
